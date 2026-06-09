@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wide Sargasso Sea — Document Cinématographie</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=JetBrains+Mono:wght@300;400;500&display=swap');
+:root{--ink:#0A0907;--shadow:#14110D;--page:#E6DCC8;--silver:#A8A096;--bone:#DDD0B8;--cream:#F0E5D0;--ghost:#BFB39A;--ash:#8E8474;--amber:#B85E22;--umber:#5C2A18;--thermal:#2A4E5C;--crimson:#7A1818;--gilt:#B89540;--moss:#5C6645;--linen:#D8C9A8;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{background-color:var(--ink);color:var(--page);font-family:'Spectral',Georgia,serif;font-weight:400;line-height:1.82;overflow-x:hidden;}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;mix-blend-mode:overlay;}
+.lens-mark{position:fixed;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--thermal) 20%,var(--silver) 40%,var(--amber) 60%,var(--crimson) 80%,transparent);z-index:100;opacity:0.55;}
+.page{max-width:840px;margin:0 auto;padding:90px 44px 140px;}
+.masthead{border-top:1px solid var(--amber);padding-top:52px;margin-bottom:72px;animation:rise 1.2s ease both;}
+.date-line{font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.18em;color:var(--ash);margin-bottom:28px;text-transform:uppercase;}
+.stamp{font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);margin-bottom:34px;display:flex;gap:24px;flex-wrap:wrap;}
+.doc-title{font-size:clamp(2.4rem,5.5vw,4.4rem);font-weight:400;line-height:1.05;letter-spacing:-0.01em;color:var(--cream);}
+.doc-title em{font-style:italic;color:var(--bone);}
+.doc-meta{font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--ash);margin-top:26px;line-height:1.85;}
+.rule-short{width:44px;height:1px;background:var(--amber);margin:36px 0;}
+.lang-note{margin:0 0 56px;padding:18px 24px;border:1px solid rgba(168,160,150,0.25);border-left:2px solid var(--silver);background:rgba(168,160,150,0.04);animation:rise 1.1s 0.1s ease both;}
+.lang-note .box-label{font-family:'JetBrains Mono',monospace;font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--silver);margin-bottom:10px;}
+.lang-note p{font-size:0.95rem;line-height:1.78;color:var(--ghost);font-style:italic;margin-bottom:0;}
+.intro{margin-bottom:56px;animation:rise 1.1s 0.15s ease both;}
+.to-line{font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--amber);margin-bottom:22px;}
+.intro p{font-size:1.18rem;line-height:1.96;color:var(--ghost);max-width:680px;}
+.intro p+p{margin-top:1.15em;}
+.intro strong{font-weight:600;color:var(--cream);font-style:italic;}
+.intro em{font-style:italic;color:var(--linen);}
+.opening-principle{margin:36px 0 0;padding:22px 28px;border-left:2px solid var(--amber);background:rgba(184,94,34,0.04);}
+.opening-principle .label{font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;}
+.opening-principle p{font-size:1.05rem;line-height:1.84;color:var(--cream);font-style:italic;}
+.opening-principle p strong{font-style:normal;color:var(--cream);}
+.premise{border-left:3px solid var(--amber);border-top:1px solid rgba(184,94,34,0.3);border-bottom:1px solid rgba(184,94,34,0.3);padding:34px 38px;margin:0 0 56px;background:rgba(184,94,34,0.05);animation:rise 1.1s 0.25s ease both;}
+.premise .box-label{font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);margin-bottom:18px;}
+.premise p{font-size:1.14rem;line-height:1.92;color:var(--cream);font-style:italic;max-width:660px;}
+.premise p+p{margin-top:1em;}
+.premise strong{font-weight:600;font-style:normal;color:var(--cream);}
+.premise em{font-style:italic;color:var(--linen);}
+.windward-orient{margin-bottom:42px;padding:28px 32px;border:1px solid rgba(184,149,64,0.3);border-left:2px solid var(--gilt);background:rgba(184,149,64,0.03);animation:rise 1.1s 0.27s ease both;}
+.windward-orient .box-label{font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gilt);margin-bottom:14px;}
+.windward-orient p{font-size:1.05rem;line-height:1.88;color:var(--ghost);}
+.windward-orient p+p{margin-top:0.9em;}
+.windward-orient strong{color:var(--cream);font-weight:600;}
+.barbados-note{margin-bottom:72px;padding:28px 32px;border:1px solid rgba(92,42,24,0.4);border-left:2px solid var(--umber);background:rgba(92,42,24,0.06);animation:rise 1.1s 0.29s ease both;}
+.barbados-note .box-label{font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);margin-bottom:14px;}
+.barbados-note p{font-size:1.05rem;line-height:1.88;color:var(--ghost);}
+.barbados-note p+p{margin-top:0.9em;}
+.barbados-note strong{color:var(--cream);font-weight:600;}
+.foundations{margin-bottom:80px;animation:rise 1.1s 0.3s ease both;}
+.foundations h3{font-size:1.95rem;font-weight:500;color:var(--cream);line-height:1.15;margin-bottom:10px;}
+.foundations .h3-sub{font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;color:var(--ash);text-transform:uppercase;margin-bottom:28px;display:block;}
+.foundations h3 em{font-style:italic;color:var(--linen);font-weight:400;}
+.foundations p{font-size:1.06rem;line-height:1.9;color:var(--page);margin-bottom:1.1em;}
+.foundations strong{color:var(--cream);font-weight:600;}
+.foundations em{color:var(--linen);font-style:italic;}
+.foundations-note{margin-top:30px;padding:20px 26px;border-left:2px solid var(--moss);background:rgba(92,102,69,0.06);}
+.foundations-note p{font-size:1rem;line-height:1.84;color:var(--ghost);font-style:italic;margin-bottom:0;}
+.universal-note{margin:48px 0 80px;padding:30px 34px;border:1px solid rgba(184,94,34,0.25);border-left:2px solid var(--amber);background:rgba(20,17,13,0.5);animation:rise 1.1s 0.32s ease both;}
+.universal-note .box-label{font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);margin-bottom:14px;}
+.universal-note p{font-size:1.05rem;line-height:1.88;color:var(--ghost);margin-bottom:1em;}
+.universal-note p:last-child{margin-bottom:0;}
+.universal-note strong{color:var(--cream);font-weight:600;}
+.universal-note em{color:var(--linen);font-style:italic;}
+.divider{display:flex;align-items:center;gap:24px;margin:88px 0 56px;}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--silver),transparent);opacity:0.5;}
+.divider-mark{font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--ash);}
+.section{margin-bottom:88px;animation:rise 1.1s ease both;}
+.section-header{margin-bottom:32px;}
+.section-number{font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.22em;color:var(--amber);display:block;margin-bottom:14px;}
+.section-title{font-size:1.85rem;font-weight:500;color:var(--cream);line-height:1.18;margin-bottom:10px;letter-spacing:-0.005em;}
+.section-title em{font-style:italic;color:var(--linen);font-weight:400;}
+.section-sub{font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;color:var(--ash);text-transform:uppercase;display:block;margin-top:6px;}
+.section-body p{font-size:1.06rem;line-height:1.92;color:var(--page);margin-bottom:1.1em;}
+.section-body strong{color:var(--cream);font-weight:600;}
+.section-body em{color:var(--linen);font-style:italic;}
+.threads{list-style:none;margin:24px 0 8px 0;padding:0;}
+.threads li{position:relative;padding-left:22px;margin-bottom:1em;font-size:1.02rem;line-height:1.85;color:var(--page);}
+.threads li::before{content:'';position:absolute;left:0;top:0.78em;width:10px;height:1px;background:var(--amber);}
+.threads li strong{color:var(--cream);}
+.threads li em{color:var(--linen);font-style:italic;}
+.script-note{margin:30px 0 0;padding:22px 28px;background:rgba(122,24,24,0.07);border-left:2px solid var(--crimson);}
+.script-note p{font-size:0.98rem;line-height:1.84;color:var(--ghost);font-style:italic;margin-bottom:0;}
+.script-note p strong{font-style:normal;color:var(--cream);font-weight:600;}
+.provocation-box{margin:36px 0;padding:30px 34px;background:linear-gradient(135deg,rgba(184,94,34,0.06),rgba(42,78,92,0.06));border:1px solid rgba(216,201,168,0.15);}
+.provocation-box .box-label{font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);margin-bottom:14px;}
+.provocation-box p{font-size:1.04rem;line-height:1.88;color:var(--ghost);margin-bottom:1em;}
+.provocation-box p:last-child{margin-bottom:0;}
+.provocation-box strong{color:var(--cream);font-weight:600;}
+.provocation-box em{color:var(--linen);font-style:italic;}
+.cross-pollination{margin:28px 0;padding:18px 24px;border-left:1px dashed var(--silver);background:rgba(168,160,150,0.04);}
+.cross-pollination .cp-label{font-family:'JetBrains Mono',monospace;font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--silver);margin-bottom:10px;display:block;}
+.cross-pollination p{font-size:0.98rem;line-height:1.82;color:var(--ghost);font-style:italic;margin-bottom:0;}
+.cross-pollination strong{color:var(--cream);font-style:normal;font-weight:600;}
+.tributary-box{margin:36px 0;padding:30px 34px;border:1px solid rgba(42,78,92,0.4);border-left:2px solid var(--thermal);background:rgba(42,78,92,0.06);}
+.tributary-box .box-label{font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--thermal);margin-bottom:14px;}
+.tributary-box p{font-size:1.02rem;line-height:1.86;color:var(--ghost);margin-bottom:0.9em;}
+.tributary-box p:last-child{margin-bottom:0;}
+.tributary-box strong{color:var(--cream);font-weight:600;}
+.tributary-box em{color:var(--linen);font-style:italic;}
+.closing{margin-top:96px;padding-top:48px;border-top:1px solid var(--amber);}
+.closing p{font-size:1.08rem;line-height:1.94;color:var(--ghost);font-style:italic;max-width:680px;margin-bottom:1.1em;}
+.closing p strong{color:var(--cream);font-style:normal;font-weight:600;}
+.closing p em{color:var(--linen);}
+.sign{margin-top:64px;animation:rise 1.1s 0.4s ease both;}
+.sign .name{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.3em;color:var(--cream);text-transform:uppercase;margin-bottom:8px;}
+.sign .date{font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.22em;color:var(--ash);text-transform:uppercase;}
+.companion{margin-top:96px;padding:36px 38px;border:1px solid rgba(184,149,64,0.25);border-left:2px solid var(--gilt);background:rgba(184,149,64,0.03);}
+.companion .box-label{font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gilt);margin-bottom:18px;}
+.companion p{font-size:0.98rem;line-height:1.84;color:var(--ghost);margin-bottom:0.7em;}
+.companion p:last-child{margin-bottom:0;}
+.companion ul{list-style:none;margin:0;padding:0;}
+.companion li{padding:8px 0;font-size:0.98rem;color:var(--ghost);font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;}
+.companion li strong{color:var(--cream);}
+a{color:var(--gilt);text-decoration:none;border-bottom:1px solid rgba(184,149,64,0.4);transition:all 0.2s ease;}
+a:hover{color:var(--cream);border-bottom-color:var(--cream);}
+@keyframes rise{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@media (max-width:680px){.page{padding:60px 24px 100px;}.section-title{font-size:1.55rem;}.doc-title{font-size:2.4rem;}.premise,.windward-orient,.barbados-note,.universal-note,.provocation-box,.tributary-box,.companion,.lang-note{padding:22px 24px;}}
+</style>
+</head>
+<body>
+<div class="lens-mark"></div>
+<div class="page">
+
+<header class="masthead">
+<p class="date-line">Jeudi 4 juin 2026</p>
+<div class="stamp"><span>Document d'orientation</span><span>BEDROCK</span><span>Confidentiel</span><span>Prép / Draft 3 / 2026</span></div>
+<h1 class="doc-title"><em>Wide Sargasso Sea</em></h1>
+<p class="doc-meta">Long métrage &nbsp;/&nbsp; En préparation<br>Écrit et réalisé par Jenn Nkiru<br>Document d'orientation pour la Cinématographie</p>
+<div class="rule-short"></div>
+</header>
+
+<div class="lang-note">
+<p class="box-label">Note / version française</p>
+<p>Cette version française accompagne le document original en anglais, qui reste le document source. Les deux versions peuvent être lues en parallèle. Les citations du scénario, les noms de personnages et de lieux, ainsi que les titres et concepts clés (BEDROCK, THE MISSING, Cosmic Archaeology, etc.) sont gardés en anglais pour cohérence avec l'ensemble du projet.</p>
+</div>
+
+<div class="intro">
+<p class="to-line">Pour : Benoît Soler</p>
+<p>Bienvenue. Benoît, ce n'est pas notre premier commencement. Nous faisons des images ensemble depuis bientôt dix ans. <em>Rebirth Is Necessary</em>. <em>Hub-Tones</em> et <em>Get Lit</em> avec Kamasi. <em>Brown Skin Girl</em>. Le corpus que nous avons bâti ensemble a déjà son propre style cinématographique, une manière de regarder que nous avons étudiée, considérée et affinée ensemble au fil des années. <strong>Nous avons déjà notre propre langue.</strong> Ce qui m'enthousiasme dans ce film, c'est qu'il nous demande de faire évoluer cette langue plus loin, vers un territoire où ni l'un ni l'autre ne nous sommes encore aventurés. Considère ce document comme la mise à plat de la bedrock philosophique de mon côté. Les instincts visuels que nous partageons n'ont pas besoin d'être ré-expliqués sur ces pages. Ils sont le sol dans lequel tout cela pousse. Au-delà de ce qui est détaillé ici, nous continuerons à rassembler des images ensemble vers un lookbook commun. J'ai hâte de construire le regard de ce film avec toi.</p>
+<p>Ce document est un point de départ, pas un cahier des charges. C'est le commencement d'une conversation, pas la mise en cadre d'une instruction. Je pose l'architecture de la façon dont je pense le film à cet instant, pour qu'au moment où nous nous asseyons ensemble en prép, nous partions d'un endroit partagé plutôt que d'en construire un à partir de rien.</p>
+<p>Il est volontairement vaste. Je pense à ce document comme à la <strong>BEDROCK</strong> de la vision-monde du film, l'endroit où je voudrais que nous puissions tous revenir comme à une pierre de touche, la source de travail à partir de laquelle tout le reste s'étend. De mon côté, c'est la bedrock à partir de laquelle je pense. De ton côté, j'aimerais que tu le considères comme le début de ta propre bedrock pour le projet, au-delà des recherches et références que tu rassembles déjà. Tout ce que nous discutons en personne est essentiellement une extension de ce qui vit déjà sur ces pages. <strong>N'hésite pas à le partager avec ton département au sens large.</strong> Plus l'équipe l'aura lu, plus le monde que nous construisons sera aligné.</p>
+<p>Considère cela comme <em>ma pensée précoce posée ouvertement</em>, avec lectures et références jointes, pour que tu puisses le lire, le contester, le contredire, l'étendre, et me rapporter des choses auxquelles je n'ai pas encore pensé. Tout ici est provisoire. Le film va trouver ce dont il a besoin à travers le travail que nous faisons ensemble, dans les essais et les repérages et sur le plateau, et dans les conversations qui rayonnent vers l'extérieur depuis cette orientation.</p>
+<p>Deux choses encore à dire d'emblée, car les deux devraient colorer tout ce qui suit. La première est que le film tient <strong>deux perspectives, celle de Rochester et celle d'Antoinette</strong>. Le monde paraît différent depuis chacune. La Caraïbe de Rochester est dense, hostile, en sueur, surveillée. La Caraïbe d'Antoinette est en harmonie avec elle, chaude, fertile, miroir. Mêmes lieux, mêmes objets, parfois même lumière, mais une vie ressentie différente à l'intérieur. Le public doit pouvoir lire à chaque instant dans lequel des deux mondes nous sommes. Garde cela dans tes choix d'image tout du long.</p>
+<p>La seconde est que <strong>rien dans ce film ne doit jamais sembler complètement, entièrement résolu, réalisé, ou actualisé</strong>. Nous travaillons avec des systèmes, des personnes et des lieux qui ne le sont jamais entièrement dans l'absolu. Il y a toujours quelque chose d'inachevé, quelque chose qui tourne, quelque chose en train d'être fait ou défait. Porte cela dans l'image. Des cadres qui ne se referment pas tout à fait. Une mise au point qui dérive un demi-temps avant de se poser. Une lumière qui n'a pas fini de décider ce qu'elle est. Le monde de ce film résiste à l'achèvement, et l'image doit lui résister aussi.</p>
+
+<div class="opening-principle">
+<p class="label">Un principe d'ouverture</p>
+<p><strong>La caméra de ce film n'est pas un instrument neutre.</strong> C'est une participante éthique de tout ce qu'elle enregistre. <em>La manière dont une chose est regardée fait partie de l'argument politique que le film construit.</em> Nous bâtissons un système d'image où la position de la caméra porte un poids avant même que la scène commence. Tiens cela comme premier principe. Tout le reste en découle.</p>
+</div>
+</div>
+
+<div class="premise">
+<p class="box-label">Le film / prémisse centrale</p>
+<p>Ceci est une adaptation de <strong>Wide Sargasso Sea de Jean Rhys</strong>, publié en 1966, soit soixante ans derrière nous. Rhys l'a écrit en contrepoint à Jane Eyre de Charlotte Brontë, restituant l'intériorité et la voix d'auteur à la femme que Brontë avait enfermée dans le grenier : Antoinette Cosway, créole, jamaïcaine, dépossédée, dite folle. Rhys l'a réécrite dans l'existence.</p>
+<p>Wide Sargasso Sea a déjà été adapté, mais jamais à travers un langage cinématographique contemporain qui réalise pleinement l'échelle, la psychologie et la résonance politique de l'intervention de Rhys. Les versions antérieures abordaient le texte comme traduction littéraire. Ce film l'aborde comme <em>réactivation</em>. Mon adaptation ne traite pas le roman comme un patrimoine mais comme <strong>une architecture vivante</strong>, une histoire qui parle directement à la façon dont le pouvoir, l'identité et l'héritage continuent à façonner le présent.</p>
+<p>C'est un film d'époque, mais qui prend une approche nouvelle de l'époque elle-même. Le son est achronique, fait des gestes à travers le temps. Les dialogues sentent l'aujourd'hui. Les références visuelles font s'effondrer délibérément décennies et siècles. Le film est enraciné dans les années qui suivent l'Acte d'Émancipation de 1833 et complètement vivant au moment présent. Le passé, le présent et le futur ne sont pas séquentiels ici. Ils se parlent constamment. Ce n'est pas une répétition de ce qui a été fait. C'est une redéfinition.</p>
+<p>Le monde d'Antoinette est principalement jamaïcain. Christophine et Annette portent la culture créole francophone au cœur de l'histoire. La lune de miel à Granbois étend la géographie jusqu'aux îles du Vent. L'Angleterre est le point final blanc et froid jusqu'à ce qu'elle ne le soit plus. Le film s'ouvre sur le feu et finit sur un rire au-dessus d'une mer claire. <strong>Antoinette rentre chez elle.</strong> Ce qui se passe entre ces deux moments est l'argument de ce film sur le savoir, le pouvoir, la perception, et ce que signifie être libre.</p>
+</div>
+
+<div class="windward-orient">
+<p class="box-label">Une orientation rapide / la Jamaïque et les îles du Vent</p>
+<p>Le film se déplace entre la <strong>Jamaïque</strong> (d'où Antoinette est originaire, où se déroule son enfance à <strong>Coulibri</strong>) et les <strong>îles du Vent</strong> (où a lieu la lune de miel à <strong>Granbois</strong>). Cela vaut la peine d'en connaître la différence, parce que ce sont deux vies matérielles différentes que l'image doit honorer.</p>
+<p>La Jamaïque est un monde créole principalement anglophone. Les îles du Vent sont une région créole mixte, anglophone et francophone. La Martinique est entièrement française. La Dominique et Sainte-Lucie sont officiellement anglophones mais portent un héritage créole français profond dans la langue, la cuisine, la musique et la culture matérielle. Saint-Vincent, les Grenadines et la Grenade sont anglophones avec des traces françaises et caraïbes indigènes. Le village « Massacre » de la Scène 5 est historiquement situé en Dominique. <strong>Christophine est créole francophone et sa parole est en créole français. Le monde qu'elle porte avec elle, à Coulibri pendant l'enfance d'Antoinette et plus tard jusqu'à Granbois, est bilingue</strong>, stratifié, tenant les deux héritages coloniaux et refusant d'être réduit à l'un ou à l'autre. Annette tient son propre registre créole francophone à Coulibri, bien qu'elle ne voyage pas avec le ménage jusqu'à Granbois.</p>
+<p>Pour l'image : la Jamaïque et les îles du Vent sont parentes mais ne sont pas la même chose. La Caraïbe n'est pas un lieu unique. Là où le scénario se passe en Jamaïque, tiens la ligne sur la Jamaïque. Là où il se passe aux îles du Vent, laisse respirer la couche créole française. La population plus large du ménage et du village couvre les deux héritages et d'autres, y compris les résidus caraïbes, arawak et taïno que le film garde en mémoire pour plusieurs personnages. Lis cette géographie comme une carte d'image. La lumière de ce film voyage. Ses sens aussi.</p>
+</div>
+
+<div class="barbados-note">
+<p class="box-label">Une note sur l'endroit où nous tournons</p>
+<p>Nous tournons à la Barbade. Le film ne se passe pas à la Barbade. <strong>Tiens la ligne.</strong> La Barbade a sa propre signature visuelle, son propre rapport à l'architecture, au jardin, à la lumière et à la couleur, et cette signature n'est pas celle de la Jamaïque, et n'est pas celle des îles du Vent. L'intérieur montagneux et luxuriant de la Jamaïque, les crêtes forestières denses de la Dominique et de Sainte-Lucie, la typologie des grandes maisons de plantation jamaïcaines, les espaces domestiques plus modestes des îles du Vent : c'est vers cela que nous construisons.</p>
+<p>Un exercice utile pour nos premières réunions sera de passer ensemble en revue les photographies de repérages avec cette transposition fermement en tête : comment déplaçons-nous ce que nous avons trouvé à la Barbade vers la Jamaïque et vers les îles du Vent ? Qu'est-ce qui reste dans le cadre, qu'est-ce qui change, qu'est-ce qui se superpose à des recherches venues d'ailleurs. La typologie de la <em>chattel house</em> en particulier fait un travail important et se traduit avec soin.</p>
+<p>Ce sera l'un des vrais défis de recherche pour l'image, et je le signale dès maintenant car ce sera la chose la plus facile au monde de glisser dans des défauts visuels barbadiens pendant la prép et le tournage. Les photographies de la Barbade ne sont pas les mêmes que les photographies de la Jamaïque. Nous devons nous assurer que le film se lit comme jamaïcain et comme caraïbe-au-vent, même si le sol sous nos pieds est barbadien.</p>
+</div>
+
+<div class="foundations">
+<h3>Fondations / <em>les Trois Registres et les Quatre Éléments</em></h3>
+<span class="h3-sub">La base de connaissances fondamentale</span>
+<p>Deux cadres opératoires traversent chaque partie de ce document et chaque cadre du film. Ils sont la base de connaissances fondamentale pour notre travail ensemble, et je voudrais qu'ils soient actifs dans chaque décision d'image plutôt que seulement énoncés en début.</p>
+<p><strong>Les Trois Registres.</strong> Chaque scène, chaque espace, chaque corps, chaque objet de ce film opère sur trois plans simultanément.</p>
+<p><strong>Matériel.</strong> Ce que la caméra enregistre littéralement. La texture du plâtre, le poids d'une chaise, la chute du tissu, la poussière sur un rebord de fenêtre, la manière dont la lumière saisit une surface précise et en refuse une autre. Le fait de l'image.</p>
+<p><strong>Spirituel.</strong> Ce que l'espace tient au-delà de ce qu'il montre. L'énergie de la pièce, la présence de ce qui ne peut pas être vu, la manière dont un lieu se ressent avant d'être décrit. Le travail que l'image fait sur l'atmosphère ressentie de la scène.</p>
+<p><strong>Ancestral.</strong> Le temps en strates qui traverse l'image, à la fois le passé qu'elle porte et le futur qu'elle est en train de devenir. L'ancestral n'est pas seulement ce qui est venu avant nous. C'est aussi ce que nous devenons pour ceux qui viendront après. <em>Ancestral ici signifie passé et futur à la fois.</em> Le tambour est le premier téléphone. Un cadre peut parler vers l'avant aussi bien que vers l'arrière. Ce que nous faisons maintenant atteint l'avant autant que l'arrière.</p>
+<p>La discipline que je voudrais que nous gardions à travers chaque décision d'image est de la tester contre les trois. <strong>Qu'est-ce que cela fait matériellement. Qu'est-ce que cela tient spirituellement. Qu'est-ce que cela porte ancestralement.</strong> Si un cadre ne fait pas de travail sur au moins un registre, demande-toi s'il appartient au film. Si un cadre fait du travail sur les trois, tu as trouvé le centre de l'image.</p>
+<p>À côté des trois registres, les <strong>quatre éléments</strong> opèrent à travers le film. <em>Eau, feu, air, terre.</em> Opératifs, pas symboliques. L'eau est la piscine, la pluie, la sueur, la rivière du lavage du linge, la mer des Sargasses elle-même. Le feu est l'incendie à Coulibri et à Thornfield, la bougie, le flamboyant à la fin, le soleil qui ne lâche pas. L'air est le vent dans les cheveux d'Annette sur la véranda, le souffle à travers les côtes corsetées de Rochester, les phalènes volant dans la flamme. La terre est la boue à l'ourlet, la saleté sous les ongles, le chemin à travers le village, le sol qui prend le corps. L'image est en conversation avec les quatre. Le linge fonce avec la sueur, les ourlets ramassent la boue, les manches s'accrochent aux lianes, et une chemise de nuit blanche prend la couleur du feu quand la pièce brûle rouge.</p>
+
+<div class="foundations-note">
+<p>S'il aide d'y penser musicalement : le matériel est le tambour, le spirituel est la basse, l'ancestral est la voix à travers les générations. Le film est la partition qu'ils font ensemble. La cinématographie est à l'intérieur de cette partition, jamais au-dessus et jamais en dessous.</p>
+</div>
+</div>
+
+<div class="universal-note">
+<p class="box-label">Deux notes constantes à porter tout du long</p>
+<p><strong>La lune orange-rouge.</strong> Le rouge du soir au hamac de la Scène 17, « le ciel brûle rouge », préfigure déjà, à cet instant, la lune orange profond qu'Antoinette voit avant de rentrer chez elle à la Scène 113. <em>Le corps se souvient en avant.</em> Même registre chromatique de retour au moment de la liberté. Suis ce fil à travers l'objectif. La lumière dans laquelle le film se termine est déjà à l'intérieur de la lumière dans laquelle il commence.</p>
+<p><strong>Antoinette rentre chez elle.</strong> Pas une liberté abstraite, pas la mort. <em>Chez elle.</em> La mer caraïbe à la fin du film est claire, éblouissante, sans sargasses. L'image tient cela depuis le premier cadre, même là où elle ne peut pas encore le montrer. Tout ce que nous bâtissons est, à sa petite manière, un pas vers ce retour à la maison. Porte le travail avec ce poids.</p>
+</div>
+
+<div class="divider"><span class="divider-mark">Sections 01 — 23</span></div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-number">01</span>
+<h2 class="section-title">La caméra comme participante morale / <em>la manière dont on regarde</em></h2>
+<span class="section-sub">L'objectif comme position éthique, héritier des histoires de l'image</span>
+</div>
+<div class="section-body">
+<p>Je veux nommer ceci directement parce que c'est le premier principe de la manière dont je bâtis l'image de ce film. <strong>La caméra n'est pas une observatrice neutre.</strong> Elle est une participante éthique. Elle est l'héritière des histoires de l'image, et ces histoires ont un poids. La caméra qui pointe sur un corps noir dans la Caraïbe des années 1830 porte avec elle toute l'archive de la photographie coloniale, du regard ethnographique, du portrait de plantation. Cet héritage ne peut pas être souhaité disparu. Il ne peut être que répondu.</p>
+<p>La caméra de ce film est capable de <em>domination</em> ou de <em>témoignage</em>. Elle est capable de <em>violer l'opacité</em> ou de <em>l'honorer</em>. Elle est capable de <em>tendresse</em> et capable de <em>vol</em>. Chaque fois que nous installons un plan, nous choisissons l'une de ces capacités et en refusons une autre. La politique du cadre commence avant l'entrée du comédien.</p>
+<p>C'est pour cela que la double perspective dans le film, le POV de Rochester et le POV d'Antoinette, n'est pas seulement un dispositif stylistique. Ce sont deux positions éthiques en dialogue. La caméra de Rochester se déplace à travers la Caraïbe comme un homme pour qui le monde est une extension de son droit à le connaître. La caméra d'Antoinette se déplace à travers le même monde comme quelqu'un qui lui appartient. <strong>Deux caméras, deux héritages, occupant les mêmes lieux.</strong></p>
+<p>J'aimerais que l'image <em>apprenne</em> au cours du film ce qu'elle a le droit de voir et ce qu'elle doit refuser de prendre. Au moment où nous arrivons aux remparts de Thornfield dans l'acte final, la caméra devrait être une caméra différente de celle qui est arrivée au quai dans les séquences d'ouverture. Le film devrait avoir fait quelque chose en elle.</p>
+<ul class="threads">
+<li><strong>L'archive photographique coloniale</strong> et ce qu'elle enseigne à la caméra contemporaine sur elle-même. Le studio d'Adolphe Duperly. Le portrait de plantation. L'enquête ethnographique. L'image de la personne mise en esclavage comme objet, puis comme type, puis comme sujet. Ce que notre caméra hérite de chacune de ces opérations.</li>
+<li><strong>La caméra comme témoin plutôt que comme possesseuse.</strong> Des cadres qui observent sans revendiquer. La discipline de rester en retrait. La discipline de tenir le plan large. Le refus du gros plan là où le gros plan consommerait.</li>
+<li><strong>Le cadre qui protège.</strong> Il y a des moments dans ce film où le bon choix cinématographique est de rendre au corps son intimité, même quand l'action est dramatique. Antoinette dans le grenier, avant la Scène 109, est un corps que le film a regardé de trop près pendant trop longtemps. L'image doit le savoir.</li>
+<li><strong>Le POV de Rochester</strong> comme la caméra qui prend. <strong>Le POV d'Antoinette</strong> comme la caméra qui tient. Le film se déplace entre les deux et le public doit en sentir la différence au niveau de l'image, pas seulement au niveau de ce qui est dans le cadre.</li>
+</ul>
+<div class="script-note"><p><strong>Tiré du scénario :</strong> les deux saturations thermiques sont la version la plus extrême de cet argument. Scène 37, quand Rochester fuit la maison de Daniel, l'image sature jusqu'à ce qu'il devienne une silhouette blanche sur fond noir. Scène 113, sur les remparts de Thornfield, l'image sature à nouveau quand Rochester disparaît dans le blanc en appelant Bertha. <em>La caméra refuse de le tenir à l'instant où il cesse de pouvoir posséder.</em> Les deux moments sont l'image qui prend une décision.</p></div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-number">02</span>
+<h2 class="section-title">L'argument somatique / <em>corps caraïbe, corps anglais</em></h2>
+<span class="section-sub">L'image comme traductrice la plus directe du corps dans son lieu</span>
+</div>
+<div class="section-body">
+<p>La cinématographie de ce film est la traductrice la plus directe d'un argument somatique que le scénario construit. <strong>Le corps caraïbe et le corps anglais ne sont pas le même corps dans leurs espaces respectifs, même si anatomiquement ils sont le même corps.</strong> Ils respirent différemment. Ils transpirent différemment. Ils bougent différemment. Le tissu sur eux compose la manière dont ils peuvent être dans l'air qui les entoure, et l'air autour d'eux compose la manière dont le tissu peut être sur eux.</p>
+<p>La chaleur est cinématographe ici. Le sont aussi l'humide, le sel, le soleil, la moisissure, la boue, la pluie, la sueur, l'intimité, la lumière du feu, le froid anglais. L'image est vivante à tout cela. L'objectif enregistre un après-midi caraïbe différemment d'un après-midi anglais, et cette différence n'est pas seulement dans la couleur de la lumière. Elle est dans ce que la lumière fait au corps qu'elle touche.</p>
+<p>Rochester arrive en pleines couches anglaises et la chaleur commence à le défaire presque immédiatement. Au moment où il est dans la forêt à la Scène 31, la caméra regarde un corps qui a perdu sa certitude compositionnelle. Il sue d'angoisse. Il rougit. Son genou tremble. Son pouce gratte son index. Le corps fuit à travers l'homme. L'image doit enregistrer cela non comme maladie, mais comme un corps en désaccord avec sa propre architecture.</p>
+<p>Antoinette est en harmonie physique avec son environnement. Son corps transpire confortablement. Sa peau rencontre l'air. Ses cheveux tiennent l'eau. Elle est chez elle dans sa propre vie somatique jusqu'à ce que Rochester entame le processus de l'en retirer. Suis cela. <em>Le corps en harmonie est lui-même un événement cinématographique.</em></p>
+<p>Christophine occupe son propre registre entièrement. Elle est habillée par sa propre tradition pour le climat dans lequel elle se trouve. Son corps est composé. L'image doit traiter sa composition comme autorité, pas comme performance. Elle n'est pas stylisée. Elle est elle-même, impeccablement. <strong>C'est l'un des grands cadeaux cinématographiques du film, et il doit être éclairé et cadré en conséquence.</strong></p>
+<p>Daniel, à la Scène 37, est un corps piégé dans une chaleur scellée. La sueur sans facilité. La pièce elle-même est fiévreuse. Il mâche son bâton. Il se mouche dans la nappe rouge. La caméra le tient dans une chaleur différente de celle dans laquelle elle tient les autres.</p>
+<div class="cross-pollination">
+<span class="cp-label">En conversation avec Ola / costume et Evi / coiffure et maquillage</span>
+<p>L'argument somatique est fait simultanément par ce qui est sur le corps, par ce que le corps lui-même fait, et par la manière dont l'image enregistre les deux. <strong>Un essai précoce avec tissu, peau, sueur et objectif est essentiel avant de verrouiller quoi que ce soit.</strong> Le blanc de la chemise de nuit d'Antoinette lit différemment sous la lumière rouge de l'incendie qu'il ne lit sur cintre. La peau rougie de Rochester lit différemment en tungstène qu'en lumière du jour. Nous concevons pour la caméra et pour le corps du comédien simultanément, et la seule manière de savoir ce que nous avons est de les mettre tous dans la pièce avec l'objectif.</p>
+</div>
+<div class="script-note"><p><strong>Tiré du scénario :</strong> Scène 3, Rochester se réveille d'un rêve fiévreux avec la sueur sur le visage et les cheveux, essayant de se redresser dans la composition anglaise. Scène 18, Antoinette lèche la sueur sur la poitrine de Rochester « comme des gouttes d'eau sur une feuille ». Scène 37, Daniel en sueur et chancelant dans son maillot blanc usé. L'argument somatique se construit avant qu'aucun de ces personnages ne parle.</p></div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-number">03</span>
+<h2 class="section-title">Grammaire de la lumière / <em>la lumière comme révélation, pas illumination</em></h2>
+<span class="section-sub">À quoi sert l'objectif. Ce que l'objectif refuse</span>
+</div>
+<div class="section-body">
+<p>La lumière dans ce film n'est pas là pour rendre les choses visibles. Elle est là pour <em>révéler</em>. Ce ne sont pas les mêmes choses. L'illumination est technique. La révélation est morale. La première décision que prend la cinématographie de ce film, dans chaque scène, est quel type de regard la lumière va permettre.</p>
+<p>Je voudrais que nous nous appuyions sur la <strong>lumière disponible</strong> partout où la production le permet. Les sources pratiques portant le registre émotionnel. La bougie de la Scène 109 comme seule source de la transformation du grenier. Les lampes à huile. La lumière du feu. La lune à travers les persiennes. Le soleil comme présence, pas comme niveau. Là où nous devons compléter, le complément doit être invisible. L'image doit toujours sentir qu'elle a trouvé la lumière qu'elle utilise, pas qu'elle l'a construite.</p>
+<p>Il y a une question cinématographique précise que ce film ne peut pas éviter, qui est <strong>la façon dont la peau noire tient la lumière</strong>. L'histoire des normes d'exposition photographiques et cinématographiques est une histoire qui contient de la politique. La norme par défaut n'a pas été neutre. Beaucoup des plus belles images de corps noirs dans le canon de l'image en mouvement ont été faites par des cinématographes qui ont refusé ces normes par défaut et ont construit les leurs. <em>Ce film se tient dans cette lignée.</em> La décision d'exposition dans ce film est une décision politique, pas une décision technique. Nous n'éclairons pas vers une norme européenne en corrigeant. Nous éclairons vers le corps réel dans la pièce réelle et nous faisons confiance à l'objectif pour tenir ce qui est là.</p>
+<p>Les photographies de Roy DeCarava sont une référence primaire pour cela. La profondeur des noirs. La manière dont la lumière entre dans l'espace sombre et l'articule sans l'aplatir. <em>The Sweet Flypaper of Life</em>, sa collaboration avec Langston Hughes, est dans la mémoire-image de ce film. Le sont aussi le travail du Kamoinge Workshop. Seydou Keïta. Malick Sidibé. Sory Sanlé. L'archive d'image de l'intériorité noire qui n'a pas besoin de se traduire pour être lisible.</p>
+<ul class="threads">
+<li><strong>La bougie de la Scène 109</strong> comme étude de ce qu'une seule source peut faire. Le grenier ne se transforme pas parce que les murs bougent. Il se transforme parce que la lumière se retire dans une mare et que la pièce tombe hors de la portée de cette mare. <em>La sous-exposition comme architecture.</em> C'est l'exemple le plus profond dans le film d'une grammaire de la lumière qui fait un argument philosophique.</li>
+<li><strong>Les séquences thermiques</strong> comme une lumière qui contourne entièrement l'idéologie de l'exposition. La chaleur est la chaleur. La caméra la lit sans l'héritage de la calibration d'exposition racialisée. Les moments thermiques sont un argument et un soulagement à la fois : l'image brièvement libérée de la politique qu'elle doit normalement négocier.</li>
+<li><strong>La lumière tropicale</strong> comme un problème photographique spécifique. L'intensité du soleil caraïbe. La manière dont il blanchit les surfaces blanches et sature la couleur en même temps. L'heure et l'angle. La manière dont il tombe à travers la végétation dense dans les scènes de forêt, brisé en faisceaux. La manière dont il se pose à plat sur la mer.</li>
+<li><strong>La lumière anglaise</strong> comme l'inversion. Faible, basse, nordique, le registre froid drainé dans lequel Antoinette est transportée à l'Acte 3. La lumière anglaise est elle-même une forme d'emprisonnement. La fenêtre du grenier qui disparaît lentement sous la neige est la version la plus extrême de cela : la lumière se réduit au long d'une séquence jusqu'à devenir un carré blanc qui n'illumine plus.</li>
+<li><strong>La lumière du feu</strong> comme le registre de température de couleur de la libération. L'incendie de Coulibri. L'incendie de Thornfield. La bougie dans le grenier qui devient le feu dans l'escalier. Suis le réchauffement à travers le film. L'image passe du froid au chaud aux moments du plus grand coût et de la plus grande liberté.</li>
+</ul>
+<div class="cross-pollination">
+<span class="cp-label">En conversation avec Nora / direction artistique</span>
+<p>La grammaire de la lumière et la grammaire des surfaces sont inséparables. <strong>Bois sombre, plâtre sombre, murs aux tonalités d'ombre profondes qui se lisent comme solides en lumière normale et reculent entièrement quand une seule source est la seule dans la pièce.</strong> Le travail de Nora a construit le grenier pour qu'il soit une pièce qui peut perdre ses bords visibles quand le moment le demande. La bougie de la Scène 109 a besoin de murs qui l'absorberont plutôt que de la renvoyer. Les matériaux du couloir et de la salle à manger de Thornfield dans la séquence d'incendie ont été choisis pour leur comportement sous lumière rouge, orange et jaune. Certaines surfaces se liront propres et saturées. D'autres deviendront boueuses d'une manière que nous ne voulons pas. Cela demande à être testé en prép, ensemble.</p>
+</div>
+<div class="script-note"><p><strong>Tiré du scénario :</strong> Scène 108, la fenêtre du grenier est « emballée de neige et de glace. Un carré blanc, rien au-delà ». Scène 109, alors qu'Antoinette marche le périmètre avec la bougie et brûle la corde, « nous ne voyons plus les murs. Il n'y a qu'ANTOINETTE entourée d'une obscurité épaisse et d'une ombre profonde ». La bougie et le bougeoir deviennent la seule source de lumière. Uniquement des mares de lumière, le reste en espace noir négatif.</p></div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-number">04</span>
+<h2 class="section-title">Grammaire du cadre / <em>l'argument composé</em></h2>
+<span class="section-sub">La composition comme proposition. L'image qui ne se résout pas tout à fait</span>
+</div>
+<div class="section-body">
+<p>Le cadre dans ce film n'est pas une fenêtre. C'est une proposition. Chaque composition est un argument que l'image construit sur ce qui est centré et ce qui est admis au bord, ce qui est tenu et ce qui est autorisé à s'échapper, ce qui est dans le foyer et ce que l'objectif a décidé de refuser.</p>
+<p>Je voudrais que nous bâtissions une grammaire du cadre qui soit <strong>prête à être non-résolue</strong>. Des compositions qui tiennent une légère asymétrie. Un horizon qui n'est pas tout à fait à niveau. Une figure qui est d'une fraction décentrée. L'image porte le même vacillement que le monde qu'elle dépeint. <em>Le monde de ce film résiste à l'achèvement, et le cadre doit y résister aussi.</em></p>
+<p>Le seuil est l'un des événements compositionnels les plus importants de ce film. Portes, fenêtres, cloisons, persiennes mi-ouvertes, la cloison fine de la Scène 77, la fenêtre à travers laquelle Antoinette voit Rochester et Amélie cadrés ensemble à la Scène 38. <strong>Le seuil est l'endroit où le film est le plus honnête sur qui est regardé par qui et quel type de regard c'est.</strong> Construis un vocabulaire de plans-seuils. Le cadre dans le cadre. Le corps partiellement obscurci. Le veilleur qui veille. La caméra tenant l'embrasure de la porte comme son propre sujet.</p>
+<p>Le hors-champ est aussi un événement compositionnel. La forme que le corps a coupée dans l'air une seconde avant. La présence que le cadre implique mais ne montre pas. Le personnage que nous savons dans la pièce mais que la caméra ne fera pas avancer. C'est là que le registre spirituel du film fait souvent son travail : dans ce que le cadre choisit de ne pas nous montrer.</p>
+<ul class="threads">
+<li><strong>Le cadre d'Hitchcock comme architecture psychologique.</strong> La manière dont une composition peut être un état d'esprit. Le cadre qui contient quelque chose dont il est anxieux. La géométrie de l'effroi.</li>
+<li><strong>Le visage de Bergman comme paysage.</strong> Le visage qui occupe tout le cadre et devient un terrain à lire. Le gros plan qui n'interroge pas mais accompagne. Le visage comme un lieu dans lequel la caméra entre plutôt que d'examiner.</li>
+<li><strong>La durée de Tarkovsky</strong> comme choix de composition. Le cadre tenu assez longtemps pour que l'œil cesse de chercher de l'information et commence à habiter. <em>L'image devient un lieu dans lequel se trouver.</em></li>
+<li><strong>Les cadres-forêts d'Apichatpong Weerasethakul.</strong> La manière dont les arbres, la lumière et les corps s'arrangent sans forcer la lisibilité. L'image comme écosystème. Particulièrement utile pour les séquences de forêt de ce film, qui ont besoin de refuser Rochester et d'accueillir Antoinette à travers la même géométrie.</li>
+<li><strong>Le témoin doublé.</strong> Antoinette à la Scène 38 voit Rochester et Amélie cadrés ensemble à travers une fenêtre. Le plan est un plan d'un plan. La composition fait le témoignage que le dialogue ne peut pas faire.</li>
+</ul>
+<div class="cross-pollination">
+<span class="cp-label">En conversation avec Nora / direction artistique</span>
+<p>Concevons les seuils ensemble. <strong>Des persiennes qui peuvent être fermées. Des portes qui pendent avec intention. La cloison fine de la Scène 77 qui ne sépare pas tout à fait la salle d'habillage de la chambre. Des fenêtres comme instruments compositionnels, pas seulement comme sources.</strong> La même pièce, cadrée de deux manières différentes, peut être deux pièces différentes. Nora et moi parlons de cela depuis le début. Joins-toi à cette conversation tôt.</p>
+</div>
+<div class="script-note"><p><strong>Tiré du scénario :</strong> Scène 38, Antoinette se tient à une fenêtre et voit Rochester et Amélie cadrés ensemble dans la pièce au-delà. La fenêtre fait le témoignage. Scène 77, après la nuit du philtre, Rochester tire le drap blanc sur le visage endormi d'Antoinette, en lui couvrant même le visage, et l'observe à travers les fentes de la cloison. Elle est « comme un cadavre ». Le drap et la cloison sont tous deux des compositions qui font ce que le dialogue ne peut pas. Scène 31, la caméra encercle Rochester alors qu'il creuse dans la forêt, son visage émergeant avec le masque noir de terre. La composition est la conclusion de quelque chose que son corps faisait pendant toute la scène. <em>Et à travers la confrontation des Scènes 42 à 71, un registre compositionnel entièrement nouveau : le tableau immobile. Les figures tenues dans l'arrangement, le cadre plus près de la peinture que du film. Les moments les plus chargés du film s'arrêtent plutôt que de bouger.</em></p></div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-number">05</span>
+<h2 class="section-title">La cinématographie comme souffle / <em>respiration, contraction, relâchement</em></h2>
+<span class="section-sub">Quand l'image inspire. Quand elle retient. Quand elle expire</span>
+</div>
+<div class="section-body">
+<p>Je voudrais que nous pensions à la cinématographie de ce film comme à un corps qui respire. Des cadres qui <em>inspirent</em>. Des cadres qui <em>se contractent</em>. Des coupes qui interrompent le souffle. Des durées qui créent la respiration. L'obturateur comme une sorte de respiration.</p>
+<p>Le film se déplace entre suffocation et relâchement à travers tout son arc. <strong>L'Angleterre est le souffle retenu.</strong> Les murs se referment. Les rideaux tirés. L'air épais de l'héritage du vol. La caméra à Thornfield doit sentir tirée tendue, les poumons de l'image compressés. <strong>La Caraïbe est le souffle poreux.</strong> L'air se déplace à travers les maisons. Les persiennes s'ouvrent. Le vent dans les arbres. La caméra peut s'étendre. <strong>La séquence Master of None est le souffle fragmenté.</strong> Des coupes qui hyperventilent. Des rythmes qui s'attrapent et se relâchent. L'image respirant dans le même motif brisé que l'homme à l'intérieur. <strong>Sous l'eau est le souffle suspendu.</strong> Les Atlantians. Les Sargasses. L'argument du poumon avec les profondeurs. <strong>L'incendie de Thornfield est l'expiration finale.</strong> Tout ce que le film a retenu sort.</p>
+<p>Ce n'est pas abstrait. Cela se traduit en choix précis. Longueur de plan. Mouvement de caméra. La décision de pousser ou de reculer. Le choix de l'endroit où couper et de l'endroit où refuser la coupe. <em>Le film doit parfois sentir comme s'il respirait contre le souffle du spectateur.</em> Plus vite que lui dans les moments d'effroi. Plus lentement que lui dans les moments de grâce tenue. L'image comme événement respiratoire.</p>
+<ul class="threads">
+<li><strong>Le cadre du souffle retenu.</strong> Le plan-séquence qui refuse de se relâcher. La caméra qui ne coupera pas. Le plan qui devient inconfortable à regarder et gagne quelque chose pour cela. C'est le cousin visuel du corset de Rochester, le corps qui ne peut pas prendre un souffle complet.</li>
+<li><strong>Le cadre du souffle poreux.</strong> La prise qui laisse le monde la traverser. Vent. Son. Un corps qui passe. Un oiseau. Le film n'insiste pas pour que chaque cadre soit signé. L'image respire dans un air qu'elle n'a pas arrangé.</li>
+<li><strong>Le cadre du souffle fragmenté.</strong> La séquence Master of None à la Scène 96. La coupe comme interruption. Le tempo du corps perdu à lui-même. La caméra complice du désordre.</li>
+<li><strong>Le cadre du souffle suspendu.</strong> Sous l'eau. Les Sargasses. Les Atlantians. L'image où le temps s'arrête parce que l'air s'arrête. <em>Les plongeuses de perles dans les vieilles images d'archive comme référence pour ce à quoi ressemble le souffle suspendu à travers un objectif.</em></li>
+<li><strong>L'expiration.</strong> L'incendie de Thornfield comme la libération finale de tout ce qui a été retenu. Le mur de feu comme souffle qui attend de sortir depuis cent cinquante ans.</li>
+</ul>
+<div class="script-note"><p><strong>Tiré du scénario :</strong> Scène 3, Rochester se réveille de la fièvre et essaie de se redresser dans la composition anglaise. Le premier souffle que la caméra doit enregistrer. Scène 96, « Master of None », fragments. Scène 113, le vent sur les remparts, les cheveux d'Antoinette flottant derrière elle. L'expiration.</p></div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-number">06</span>
+<h2 class="section-title">Le droit à l'opacité / <em>Glissant, visibilité, refus</em></h2>
+<span class="section-sub">La visibilité partielle comme dignité. L'obscurité comme protection</span>
+</div>
+<div class="section-body">
+<p>Le <strong>droit à l'opacité</strong> d'<strong>Édouard Glissant</strong> est l'un des points d'ancrage théoriques les plus importants de l'image dans ce film. Dans <em>Poétique de la Relation</em>, Glissant soutient que l'exigence d'une totale lisibilité, l'insistance pour qu'on soit pleinement compris par un autre afin de se voir accorder la réalité, est elle-même une forme de violence coloniale. <em>« Je réclame pour tous le droit à l'opacité. »</em> Pas le droit d'être caché, mais le droit de ne pas être réduit à ce qui peut être vu et nommé par un autre.</p>
+<p>La caméra dans ce film tient ce droit. Tout n'a pas à être pleinement visible. Tout n'a pas à être résolu. <strong>La visibilité partielle est dignité. L'obscurité est protection. L'opacité est refus de la lisibilité coloniale.</strong> Le réflexe du cinéma contemporain est de sur-exposer, de sur-expliquer, de sur-cadrer. Notre réflexe doit être l'opposé. L'image gagne son chemin vers le visible. Elle ne le présuppose pas.</p>
+<p>C'est particulièrement important pour Christophine, pour Antoinette dans ses états intérieurs, pour les séquences spirituelles, pour la forêt, pour les Atlantians, pour l'ancêtre arawak de la Scène 97. Ce ne sont pas des échecs d'accès. Ce sont des <em>refus d'accès</em>. La caméra qui sait quand détourner le regard est plus puissante que la caméra qui insiste à regarder.</p>
+<ul class="threads">
+<li><strong><em>Poétique de la Relation</em> de Glissant</strong>, lu spécifiquement pour les passages sur l'opacité. L'argument selon lequel la lisibilité aux conditions d'une partie est la mort de la relation. L'image qui respecte la relation respecte l'opacité.</li>
+<li><strong>Le corps cadré au bord.</strong> Christophine partiellement hors-champ à des moments où elle est la plus puissante. La décision de rendre à son corps son intimité face à l'objectif.</li>
+<li><strong>Le visage qui n'est pas le centre.</strong> Le visage d'Antoinette donné dans l'approche lente, de profil, dans l'angle qui n'exige pas. La caméra arrivant à son visage quand elle est prête à être atteinte, pas quand le récit le veut.</li>
+<li><strong>L'obscurité qui n'est pas absence.</strong> L'ombre dense dans la cuisine de Christophine. La forêt sous la canopée. Le grenier quand la bougie s'est retirée. <em>L'obscurité comme architecture d'un autre type de regard.</em></li>
+<li><strong>Le cadre qui refuse de traduire.</strong> Le créole français sans sous-titres à certains moments. Le langage corporel de Christophine sans explication. L'image fait confiance au public pour habiter ce qu'il ne peut pas pleinement décoder.</li>
+</ul>
+<div class="script-note"><p><strong>Tiré du scénario :</strong> la Scène 97 est un écran noir avec l'ancêtre arawak qui parle. L'opacité la plus profonde du film. L'image a choisi de donner à l'ancêtre la dignité d'être entendu sans être regardé. Scène 109, le grenier se dissout dans l'ombre avec des mares de lumière de bougie. Antoinette devient lisible seulement là où elle choisit d'être illuminée. L'image est entre ses mains maintenant, pas les nôtres.</p></div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-number">07</span>
+<h2 class="section-title">Format et objectif / <em>la négative, le verre, la terre</em></h2>
+<span class="section-sub">Une conversation que nous aurons ensemble, avec les options tenues ouvertes</span>
+</div>
+<div class="section-body">
+<p>Je voudrais que nous gardions la conversation sur le format ouverte et ambitieuse aussi longtemps que la production le permettra. <strong>Le rêve, c'est le 35mm. Le Super 35 là où c'est possible.</strong> La négative horizontale 8-perforations si le budget peut la porter. Une négative assez grande pour que la terre caraïbe, dans toute son échelle et sa densité, ait quelque part où vivre. <em>Le moteur est celui-ci : la terre est un personnage dans ce film, et le cadrage de la terre comme personnage détermine l'image à chaque niveau.</em></p>
+<p>Je suis aussi intéressée à pousser vers le <strong>VistaVision</strong> et le <strong>Technirama</strong> comme points de collaboration. Ce ne sont pas des choix de nostalgie. Ce sont des intelligences grand format qui permettent à l'échelle de l'image et au grain de tenir dans une relation particulière. La finesse du détail à distance. Le souffle du large. La manière dont le cadre peut tenir à la fois un corps et tout le paysage derrière sans aplatir aucun. Vaut la conversation tôt.</p>
+<p>Là où le 35mm n'est pas pratique, là où le numérique est le défaut opérationnel, je voudrais que nous ayons <strong>la conversation avec l'étalonnage et la post avant le tournage</strong>, pas après. La correction de couleur en particulier. Nous poussons l'image numérique vers la pellicule à travers les décisions photographiques que nous prenons sur le plateau, en tandem avec le travail que le coloriste fera après. L'étalonnage n'est pas une opération de sauvetage. Il fait partie de la cinématographie. La conversation commence en prép, pas en post.</p>
+<p>Sur l'objectif : mon instinct va vers le <em>sphérique</em>. Je trouve le cadre sphérique plus honnête à l'œil et plus capable de tenir le genre de compositions non-résolues dont nous venons de parler. Mais je suis sincèrement ouverte à la conversation <em>anamorphique</em>, et j'aimerais que nous l'ayons ensemble. Le cadre anamorphique a ses propres arguments : la compression horizontale, le bokeh ovale, la manière dont la lumière fuse latéralement. Les deux sont vivants pour moi. Je veux entendre ce vers quoi tu vas instinctivement.</p>
+<p>Quel que soit le chemin que nous prenons sur la question sphérique / anamorphique, la lignée de l'objectif est ouverte. Lignées russes, françaises, japonaises et au-delà. Pas plafonnée aux années 90. <strong>Verres actuels et à venir sur la table.</strong> Verres vintage là où ils gagnent leur place par ce qu'ils font, pas par ce qu'ils sont. L'objectif qui est juste est l'objectif qui nous aide à tenir la terre comme personnage. C'est le test.</p>
+<ul class="threads">
+<li><strong>La négative comme terre.</strong> De plus grandes négatives peuvent tenir l'intensité caraïbe à l'échelle. La végétation dense, le vert stratifié, les montagnes en recul, la mer comme élément continu. L'image a quelque part où mettre ce qu'elle voit.</li>
+<li><strong>VistaVision et Technirama</strong> comme références historiques grand format et comme directions de production potentielles. La structure du grain. Les possibilités de format. La manière dont le format parle d'un sens de la terre.</li>
+<li><strong>Le numérique poussé vers la pellicule.</strong> Si la production atterrit en numérique, la conversation sur la manière dont nous obtenons que l'image numérique se comporte comme une image pellicule doit commencer en prép avec l'équipe d'étalonnage. Choix de capteur, discipline d'ISO, espace log, caractère de l'objectif, pipeline post.</li>
+<li><strong>Verre sphérique</strong> pour un espace compositionnel honnête et le cadre non-résolu. <strong>Verre anamorphique</strong> pour la compression horizontale, les fuses, l'échelle ressentie du paysage. Les deux ont des arguments. Nous testerons.</li>
+<li><strong>Lignées de verres.</strong> Russes, françaises, japonaises et au-delà, sans plafond d'époque. Vintage là où il gagne sa place. Nouveau là où il gagne sa place. L'objectif qui nous aide à tenir la terre est le bon objectif.</li>
+</ul>
+<div class="provocation-box">
+<p class="box-label">Une provocation</p>
+<p>Que signifie tourner la Caraïbe sur un objectif qui n'a vu que l'Europe avant cela ? Que signifie la tourner sur un objectif qui n'a vu que le Japon avant cela ? <em>Les objectifs ont leurs propres histoires de voyage.</em> Un morceau de verre est un morceau d'héritage. L'objectif que nous choisissons entre dans le cadre avec son propre passé. Je veux que nous en soyons conscients, pas effrayés. L'argument de réactivation du film s'étend à l'appareil qui l'enregistre.</p>
+</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-number">08</span>
+<h2 class="section-title">Théorie des couleurs / <em>l'argument chromatique</em></h2>
+<span class="section-sub">Des rouges qui répondent à des rouges. Des blancs qui deviennent spectraux. La lune orange-rouge</span>
+</div>
+<div class="section-body">
+<p>Le film fait un travail chromatique au niveau de l'argument, pas de la décoration. Nora et moi sommes en profondeur dans ce travail du côté de la direction artistique, et la cinématographie est l'endroit où ces décisions chromatiques atterrissent ou s'effondrent. L'image est l'endroit où la couleur devient l'argument que le scénario prévoit ou devient le papier peint d'un film d'époque. Nous visons le premier.</p>
+<p>Plusieurs fils que je voudrais que nous suivions à l'objectif :</p>
+<ul class="threads">
+<li><strong>Blanc.</strong> Antoinette porte du blanc tout au long du film. Les matériaux et les coupes varient. La couleur ne varie pas. Ce qui change ce sont les nuances et ce que le blanc porte : le blanc imposé crisp de la robe de demoiselle d'honneur, le blanc jauni-par-le-soleil et vécu du quotidien à Coulibri, le blanc emprunté taché de Tia de l'échange de robes dans la confrontation à la Scène 71, le blanc mouillé qui traîne dans la boue, le blanc du mariage, les blancs de calèche à chaque seuil de sa vie, la chemise de nuit blanche du grenier réduite à son essence. <em>Au moment de l'incendie de Thornfield, ce blanc prend la lumière rouge autour d'elle et devient spectral.</em> Le public doit sentir que son blanc s'est transformé. L'objectif doit être capable de cette transformation. Le blanc peut s'élever, s'éteindre, prendre la couleur de l'environnement, ou tenir le sien selon le tissage du tissu, l'étalonnage de la lumière, et le caractère optique de l'objectif. Nous testons les tissus à la caméra tôt, avec Ola et avec Nora.</li>
+<li><strong>Rouge.</strong> Le rouge est la couleur de l'intimité corporelle et de la vie corporelle. Les fourmis rouges sur les livres de droit de Rochester. Le café bull's blood. Les longues cicatrices blanches sur la cuisse d'Antoinette que Christophine révèle à la Scène 89. La pierre de Tia qui tire le sang du front de la jeune Antoinette à l'intérieur de la confrontation à la Scène 71, où Tia essuie le sang et Antoinette essuie les larmes de Tia dans le moment d'échange des robes. Le flash intrusif de la jeune Antoinette poussant ses propres ongles dans sa peau à la Scène 49. <em>Le rouge comme refus du corps d'être seulement possédé.</em> Plus important encore, les deux nappes rouges : la nappe rouge sang dans la maison de Daniel à la Scène 37, et la nappe rouge qu'Antoinette enflamme délibérément à Thornfield à la Scène 111. <strong>Un rouge répond à un autre à travers les continents.</strong> Suis ce motif chromatique à l'objectif. Même rouge, deux latitudes différentes, deux fonctions différentes, une seule conversation. Puis il y a un troisième registre de rouge que le scénario a introduit : <strong>les moments rouge profond qui remplissent momentanément l'écran</strong> à la Scène 73 et à nouveau à la Scène 83, tous deux au point de la nomination « Bertha », chacun accompagné d'un cri sonore aigu. <em>Du rouge pur sans sujet, la couleur étant brièvement la seule chose dans le cadre.</em> Ce ne sont pas des effets. C'est l'intérieur du corps qui arrive à la surface de l'image pour un seul battement.</li>
+<li><strong>Or.</strong> Cadres dorés autour d'Annette, de The Miller's Daughter, des portraits de la lignée patriarcale. Les boucles d'oreilles lourdes de Christophine. Le service de salle à manger de Thornfield. L'or comme accumulation et refus à la fois. Le même métal porté par les accumulateurs coloniaux et par Christophine dont les ancêtres ont fait la tradition d'orfèvrerie. <em>Terrain contesté.</em> La lumière saisit l'or différemment selon le corps ou la surface qui le porte. L'image doit en connaître la différence.</li>
+<li><strong>Brun / terre.</strong> La robe blanche d'Antoinette qui traîne dans la boue à la Scène 6. La robe de Christophine qui traîne brune à la Scène 11. Les empreintes brunes de la jeune Antoinette sur la véranda blanche dans la confrontation. Le masque de terre de Rochester à la Scène 31. <em>Le brun comme marque de la terre sur le corps.</em> La boue sur une robe blanche est honte dans une lecture et sacrement dans une autre. L'image laisse le public habiter les deux.</li>
+<li><strong>Noir.</strong> La peau. Les deuxièmes yeux des Atlantians qui s'ouvrent sur les paupières fermées. Le monticule dans le coin de Daniel (le résidu Obeah : terre noire, peau morte, plumes). Le café bull's blood. Le masque de terre de Rochester. L'écran noir de la Scène 97 (l'ancêtre arawak qui parle). Les silhouettes noires des femmes dans la maison de plantation en ruine dans l'incendie d'ouverture. Le flash intrusif de limaces blanches se ratatinant en noir fondu à l'intérieur de la confrontation à la Scène 68. <strong>Le noir comme couleur de ce qui ne peut être possédé par le regard colonial, et comme couleur dans laquelle s'effondre un extrême du blanc.</strong></li>
+</ul>
+<div class="provocation-box">
+<p class="box-label">La séquence d'incendie / une solution chromatique</p>
+<p>La séquence d'incendie finale à Thornfield est un événement chromatique majeur pour la cinématographie. À cause des contraintes pratiques et budgétaires sur l'échelle du feu physique que nous pouvons mettre en scène, nous travaillons délibérément avec <strong>de la lumière rouge, orange et jaune, utilisée de manière abstraite, pour faire écho aux couleurs du feu et intensifier le sens du brasier</strong>. La lumière fait le travail que la flamme ferait à plus grand budget. <em>C'est une théorie des couleurs comme solution pratique et comme argument philosophique à la fois.</em> Le film joue avec la différence entre ce qu'Antoinette perçoit en échelle et en intensité et l'actualité matérielle du feu qu'elle a allumé. L'incendie vit en partie dans son esprit, en partie dans les pièces, et l'abstraction chromatique tient les deux à la fois. Les surfaces, finitions, tissus et matériaux d'habillage du couloir, de la salle à manger et de l'escalier ont été choisis par Nora avec leur comportement sous lumière rouge, orange et jaune pleinement considéré. La chemise de nuit blanche d'Antoinette a été choisie par Ola pour la manière dont elle prendra et tiendra cette lumière. L'image est le lieu de rencontre de ces décisions.</p>
+</div>
+<p>La préfiguration de la lune orange-rouge traverse cela. Le rouge du soir au hamac de la Scène 17, « le ciel brûle rouge », préfigure déjà, à cet instant, la lune orange profond qu'Antoinette voit avant de rentrer chez elle à la Scène 113. <strong>Même registre chromatique de retour au moment de la liberté.</strong> Le corps se souvient en avant. La lumière se souvient en avant. L'image tient la fin à l'intérieur de son commencement.</p>
+<div class="cross-pollination">
+<span class="cp-label">En conversation avec Nora / direction artistique et Ola / costume</span>
+<p>La théorie des couleurs dans ce film est une collaboration à trois départements. Nora bâtit les surfaces qui prennent la lumière. Ola habille les corps qui se déplacent à travers. L'objectif est le lieu de rencontre de ces décisions. <strong>Planifie des essais caméra en prép avec les deux départements présents.</strong> Le blanc que nous choisissons pour la chemise de nuit d'Antoinette, le rouge de la nappe, l'or des cadres, le brun de la terre, le noir de la mare de bougie, tous ces choix doivent être vus à travers l'objectif avant d'être verrouillés.</p>
+</div>
+<div class="script-note"><p><strong>Tiré du scénario :</strong> Scène 17, le soir au hamac, « le ciel brûle rouge ». Scène 37, la nappe rouge sang de Daniel. Scènes 73 et 83, les flashes rouge profond qui remplissent brièvement l'écran à la nomination « Bertha ». Scène 111, Antoinette « abaisse soigneusement sa main et allume le bord de la nappe. Précision et intention dans son mouvement ». Scène 112, le grand escalier « éclairé en rouge cramoisi ». Scène 113, « lune orange profond ». L'argument chromatique court d'un bout à l'autre.</p></div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-number">09</span>
+<h2 class="section-title">Race, visibilité, exposition / <em>l'argument visuel que le film construit</em></h2>
+<span class="section-sub">Fanon inversé. Le thermique comme double disparition. L'exposition comme politique</span>
+</div>
+<div class="section-body">
+<p>Le film construit un argument sur la race et la visibilité qui opère en dessous du niveau du dialogue. Il est fait à travers des décisions cinématographiques. Je veux nommer ces décisions explicitement pour que nous puissions les bâtir avec intention.</p>
+<p><strong>L'inversion Fanon.</strong> Dans <em>Peau noire, masques blancs</em>, Frantz Fanon écrit sur l'<em>épidermisation</em> : le processus par lequel l'inscription raciale est forcée sur la peau, par lequel les corps noirs sont contraints à porter les significations sur lesquelles la culture blanche insiste. Le film inverse cet argument à la <strong>Scène 31</strong>. Rochester avance dans la forêt « parti pour conquérir », perd la route pavée, panique, et commence à creuser avec ses mains nues. La caméra encercle. Au moment où elle découvre son visage, la terre du sol qu'il est venu dominer a fait un masque noir de sa peau blanche. Le scénario le nomme directement : <em>« White skin, Black mask. »</em> Que ce moment se situe maintenant relativement tôt dans le film, plutôt que tard, est structurellement important. <strong>L'inversion arrive avant même que Rochester ait compris dans quel type de lieu il se trouve.</strong> L'argument visuel est que l'inscription raciale n'est pas stable. Le colonisateur qui voyage vers la Caraïbe pour en extraire la valeur finit par porter le visage de ce qu'il est venu dominer, dès sa première marche dans la terre. <strong>L'image porte cela sans annotation.</strong> Le corps a fait le travail pendant toute la scène avant que le visage ne soit révélé. La caméra fait confiance au public pour le lire.</p>
+<p><strong>La double disparition thermique.</strong> Deux séquences thermiques dans le film opèrent comme rime structurelle. À la <strong>Scène 37</strong>, Rochester fuit la maison de Daniel et l'image sursature jusqu'à ce qu'il devienne une silhouette blanche sur fond noir. À la <strong>Scène 113</strong>, sur les remparts de Thornfield, Antoinette sur le toit peut distinguer la forme de Rochester à l'intérieur du feu mais rien de plus. L'image sature à nouveau. <em>Rochester disparaît dans le blanc en appelant Bertha.</em> Il appelle son nom à l'instant où il cesse d'être visible. <strong>Le possesseur s'évanouit à l'instant où la chose qu'il a tenté de posséder devient libre.</strong> Les deux moments sont le même argument répété deux fois sur la longueur du film. La logique thermique n'est pas un effet visuel. C'est une déclaration sur la manière dont la race se construit par la vision, et sur ce qui se passe quand cette construction est inversée.</p>
+<p><strong>L'exposition comme acte politique.</strong> L'histoire standard des normes d'exposition photographiques et cinématographiques a été calibrée sur la peau blanche et corrigée pour tout le reste. Choisir une autre norme par défaut, exposer pour le corps réel dans la pièce réelle sans référence à un standard européen, est une décision politique. <em>C'est la lignée de cinématographes et de photographes à l'intérieur de laquelle nous travaillons.</em> Le film n'a pas besoin d'annoncer cet argument. Il a seulement besoin de le construire avec constance, chaque jour sur le plateau, à chaque plan.</p>
+<ul class="threads">
+<li><strong><em>Peau noire, masques blancs</em> de Fanon</strong> lu spécifiquement pour les passages sur l'épidermisation. Puis relu avec la Scène 31 en main. L'argument visuel du film est en dialogue avec Fanon et l'inverse en même temps.</li>
+<li><strong>La caméra thermique comme instrument visuel.</strong> La chaleur est la chaleur. L'objectif la lit sans l'héritage de la calibration d'exposition racialisée. <em>Une visibilité idéologiquement propre.</em> Les deux séquences thermiques sont les moments les plus clairs où le film le dit.</li>
+<li><strong>L'histoire des normes d'exposition photographiques.</strong> Les Shirley cards, l'histoire de calibration de Kodak, la correction lente et partielle de cette histoire, les cinématographes qui l'ont refusée. <em>La décision d'exposition dans ce film est un choix entre héritages.</em></li>
+<li><strong>Stuart Hall</strong> sur le rapport entre race et représentation. Encodage et décodage. L'image comme toujours-déjà politique.</li>
+</ul>
+<div class="script-note"><p><strong>Tiré du scénario :</strong> Scène 31, Rochester qui creuse, la caméra qui encercle, le visage qui émerge avec le masque de terre. Scène 37, Rochester fuyant Daniel à travers le thermique saturé. Scène 113, Rochester à l'intérieur du feu sur les remparts de Thornfield, appelant Bertha, se dissolvant dans le blanc du thermique. <em>Trois des arguments visuels les plus chargés du film. Construis-les avec soin.</em></p></div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-number">10</span>
+<h2 class="section-title">Les registres du regard / <em>comment le film regarde</em></h2>
+<span class="section-sub">Plusieurs modes visuels entre lesquels le film se déplace, jamais dans un seul</span>
+</div>
+<div class="section-body">
+<p>Le film n'a pas un mode visuel unique. Il se déplace entre plusieurs, parfois dans la même scène. Je veux les nommer clairement pour que nous sachions entre quoi nous basculons, et pour que les bascules elles-mêmes deviennent des événements signifiants plutôt que des accidents.</p>
+<ul class="threads">
+<li><strong>POV de Rochester.</strong> Plus dense, hostile, la Caraïbe comme quelque chose qui presse. Surveillée et surveillante. Des compositions qui encombrent. Une lumière qui ne cède pas. L'image d'un homme dont le cadre de compréhension est en train de lui faillir en temps réel.</li>
+<li><strong>POV d'Antoinette.</strong> Harmonieuse, fertile, miroir. La Caraïbe comme un lieu qui la reconnaît en retour. Des compositions qui s'ouvrent. Une lumière qui la rencontre. L'image d'un corps en accord avec son environnement.</li>
+<li><strong>Thermique.</strong> La chaleur comme principe de visibilité. Les deux séquences thermiques des Scènes 37 et 113. Une image idéologiquement différente, calibrée hors de l'histoire d'exposition racialisée.</li>
+<li><strong>Noir et blanc.</strong> Utilisé pour les moments de poids archivistique ou d'effondrement ancestral. L'image dépouillée jusqu'à ses essentiels tonaux. <em>La couleur drainée du monde pour faire venir autre chose au premier plan.</em></li>
+<li><strong>Intercoupes d'archive.</strong> Voir Section 16. Ce ne sont pas des inserts. C'est un autre registre du film. Le document historique qui arrive comme infiltration, pas comme illustration. Au moment de la Scène 109 (Antoinette dans le grenier), des images d'archive s'entrelacent directement avec l'image vivante à mesure que Tacky's Rebellion, les Ibos qui débarquent, Charlotte Brontë, les yeux de Jane Eyre, Nanny Maroon, les Sargasses, Drexciya, Patrice Lumumba, 2Pac commencent à émerger dans le cadre à côté d'elle.</li>
+<li><strong>Cartons FLASHBACK.</strong> Les moments de collapse temporel marqués par le scénario. L'image se déplace dans le passé comme un présent, pas comme un effet de mémoire. Le flashback n'est pas en flou. Il est tranchant et immédiat.</li>
+<li><strong>TABLEAU IMMOBILE.</strong> Un nouveau registre qui s'impose avec la séquence de confrontation et le Tryptic aux Scènes 93 à 95. Le cadre tenu. Le groupe composé. L'image dans une sorte de souffle suspendu. Plus près de la peinture que du film. Souvent le moment juste avant que quelque chose ne tourne. L'image la plus chargée du film s'arrête plutôt que de bouger.</li>
+<li><strong>FLASH INTRUSIF.</strong> Une éclatée du présent par une autre temporalité, un portrait, un geste, un objet, un fragment de rituel. Le scénario les marque explicitement à travers le chapitre de la confrontation : <em>INTRUSIVE FLASH - PORTRAIT</em>, <em>INTRUSIVE FLASH - DANCE</em>, <em>INTRUSIVE FLASH - PIERRE</em>, <em>INTRUSIVE FLASH - NAILS IN SKIN</em>, <em>INTRUSIVE FLASH - GODFREY</em>, <em>INTRUSIVE FLASH - COCO CLIPPING</em>, <em>INTRUSIVE FLASH - SLUGS</em>, <em>INTRUSIVE FLASH - FIRE</em>. <em>L'effraction visuelle est elle-même la forme de l'argument.</em></li>
+<li><strong>Imagined snapshots.</strong> Ce que Rochester imagine. Ce qu'Antoinette imagine. Ce que ni l'un ni l'autre n'est autorisé à voir. L'image comme fantasme, projection, ou hallucination. La mer de visages au mariage qui bascule vers presque tous noirs à la Scène 32 en est l'exemple le plus précis.</li>
+<li><strong>Le POV doublé.</strong> Une scène jouée d'abord depuis le POV d'un personnage, puis rejouée depuis celui de l'autre. L'architecture est explicite à la Scène 83, où le mirroring du salon entre Antoinette et Rochester passe d'abord par ses yeux à lui puis, après que la caméra a pivoté et est revenue, repasse à travers ceux d'elle. Les deux prises ne sont pas la même scène. Les paroles légèrement différentes, les gestes légèrement différents, l'atmosphère légèrement différente. <em>Qui regarde est en opération est une question que le film n'arrête pas de poser.</em></li>
+</ul>
+<p><strong>Le film ne doit jamais rester dans un seul registre trop longtemps.</strong> Les registres se contaminent. Le POV d'Antoinette se mélange au thermique. Le thermique se mélange à l'archive. L'archive se mélange au POV de Rochester. L'image reste agitée. <em>Si une scène se pose confortablement dans un seul registre, elle ne fait probablement pas son meilleur travail.</em></p>
+<p>La séquence soutenue la plus exigeante du film pour l'image est la confrontation qui commence à la Scène 41, avec le titre de chapitre <strong>THERE IS ALWAYS THE OTHER SIDE</strong> qui arrive à l'écran avec un dub delay & reverb. À partir de là, l'enfance à Coulibri n'est plus chronologique. <em>Antoinette la raconte à Rochester dans la salle à manger de Granbois, et le film met en scène le récit.</em> L'architecture est : <strong>tableau immobile / flash intrusif / retour à la salle à manger / tableau immobile / flash intrusif / retour.</strong> Le jardin, le jeu de tapes des mains, les parents qui dansent, Pierre dans le berceau, Godfrey sous son arbre, les ailes coupées de Coco, l'incendie, Annette traînée à travers la foule, la pierre de Tia, l'échange de robes. Chaque battement émerge en tableau immobile ou en flash intrusif, puis se dissout pour revenir au présent de la salle à manger où Antoinette et Rochester se font face de part et d'autre d'une bougie.</p>
+<div class="cross-pollination">
+<span class="cp-label">En conversation avec Errol / sonique</span>
+<p>Le chapitre de la confrontation et le Tryptic sont autant des problèmes sonores que visuels. <strong>Le dub delay & reverb qui ponctue le titre de chapitre est le mode opératoire du chapitre entier.</strong> Les flashs intrusifs ont leurs propres signatures sonores ; les tableaux immobiles ont leurs propres silences ; le retour au présent a sa propre densité. Coordonne le rythme de la caméra avec celui du son. Aucun ne devrait fonctionner sans l'autre.</p>
+</div>
+<div class="script-note"><p><strong>Tiré du scénario :</strong> la Scène 41 tient le titre de chapitre. La confrontation court des Scènes 42 à 71. La Scène 83 tient le POV doublé. Les Scènes 93 à 95 tiennent le Tryptic. La Scène 97 est un écran noir avec l'ancêtre arawak qui parle. <em>Ce sont les expériences les plus profondes du film sur la manière dont il regarde. Chacune récompense l'objectif qui sait qu'il ne regarde pas seulement.</em></p></div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-number">11</span>
+<h2 class="section-title">Érotisme, désir, savoir sensuel / <em>l'érotique comme force cinématographique</em></h2>
+<span class="section-sub">Pas spectacle. Force énergétique, déstabilisation psychologique, ouverture spirituelle</span>
+</div>
+<div class="section-body">
+<p>L'érotique dans ce film est l'un de ses systèmes énergétiques centraux. Ce n'est pas une couche tonale ni une note marginale. <strong>Il croise directement liberté, possession, rythme, visibilité, chaleur, folie, environnement et savoir.</strong> Dans <em>Wide Sargasso Sea</em>, l'érotisme est lié à la liberté et au pouvoir, à la possession et au colonialisme, à la nature et au corps, au rythme et à la visibilité, à la chaleur et au danger, à la reddition et à la transformation, à la peur et au connaître, à la dissolution du soi et à la perméabilité spirituelle. <em>C'est l'une des principales manières dont le film se déplace entre les trois registres.</em></p>
+<p>La cinématographie doit comprendre l'érotisme non pas simplement comme sexualité, mais comme <strong>force sensorielle et spirituelle</strong>. Pas l'érotisme comme spectacle. L'érotisme comme force énergétique. Comme déstabilisation psychologique. Comme intelligence sensorielle. Comme ouverture spirituelle. Comme vérité corporelle.</p>
+<p>Ce qui suit est un ensemble de provocations sur la manière dont cela vit à l'objectif.</p>
+<ul class="threads">
+<li><strong>La caméra et le désir.</strong> L'objectif lui-même doit parfois <em>désirer, hésiter, dériver, se rendre, craindre la proximité, s'enivrer, être submergé</em>. C'est différent de « bien filmer le sexe ». L'objectif entre dans des états d'attraction et de déstabilisation. Rochester qui regarde Antoinette. Antoinette qui regarde en retour. Rochester qui regarde la Caraïbe et ne sait pas quoi faire de ce regard. Le corps dans la chaleur. Peau mouillée. Souffle. Eau. Tissu sur peau. Toucher. Sueur. Immobilité après l'intimité. <em>L'érotique dans ce film vit souvent dans l'anticipation, le résidu, l'atmosphère, la proximité, le toucher retenu, la vibration, le rythme.</em> Pas dans l'explicite.</li>
+<li><strong>L'érotisme comme savoir.</strong> Le corps dans ce film sait fréquemment avant que la langue ne sache. L'expérience érotique devient révélation, prophétie, effondrement du refoulement, point d'accès, seuil spirituel. <em>L'érotique n'est pas séparée du système philosophique du film. C'est l'un de ses portails.</em> L'érotique est directement liée à la folie comme accès, à l'Obeah, à la possession, à la liberté, à THE MISSING, au dub, à la fréquence, à la forêt, à la logique thermique. Quand la caméra enregistre un moment érotique, elle enregistre aussi un corps qui sait quelque chose que le dialogue n'a pas encore rattrapé.</li>
+<li><strong>Colonialisme et peur érotique.</strong> Rochester est répétitivement déstabilisé par le désir, par le rythme, par l'ouverture sensuelle, par la perméabilité, par le plaisir, par la reddition. Sa peur d'Antoinette est souvent inséparable de son attraction pour elle, de son désir, de son envie, de sa vulnérabilité corporelle en sa présence. <em>L'empire dépend du confinement. L'érotique menace le confinement.</em> Cela rend la séquence du twerk, le corset, la chaleur, le dévêtement, la sueur, la forêt, le dancehall et le toucher tous politiquement chargés au niveau de l'image.</li>
+<li><strong>L'érotisme du paysage.</strong> La Caraïbe a historiquement été filmée érotiquement dans la littérature et l'image coloniales, féminisée, pénétrée, exotisée, consommée. Ce film complique cela. Le paysage est séduisant, dangereux, vivant, résistant, inconnaissable. <strong>La caméra doit être consciente de quand elle désire le paysage, et de quand le paysage submerge le spectateur.</strong> Cette distinction compte politiquement. Nous ne faisons pas d'images de la terre qui participent à l'économie visuelle coloniale. Nous faisons des images d'un paysage qui a sa propre agency érotique et qui fait son propre regard.</li>
+<li><strong>L'érotisme comme rythme.</strong> Fortement lié à l'architecture sonique du film. L'érotisme ici est fréquemment rythmique : dub, basse, souffle, danse, répétition, pulsation, balancement, eau, tempo du corps. La cinématographie peut incarner cela à travers mouvement, durée, allure, oscillation, dérive, vibration du cadre, instabilité du caméra-épaule, attardement. <em>Le film doit parfois sentir comme si l'image elle-même respirait contre la peau.</em></li>
+<li><strong>La sueur comme érotique et politique.</strong> La sueur est déjà un motif dans ce film. C'est aussi un événement cinématographique avec classe, race, climat et psychologie en lui. Qui transpire confortablement. Qui transpire d'angoisse. Qui rayonne. Qui se détériore. Qui s'harmonise avec la chaleur. Qui la combat. <em>L'objectif lit la sueur différemment sur différents corps, et le choix d'image de la manière dont il la lit fait partie de l'argument.</em></li>
+<li><strong>L'érotisme et l'opacité.</strong> Tout ce qui est érotique ne devrait pas être pleinement visible. Obscurité, ténèbre, cadrage partiel, corps retenus, toucher fragmenté, lignes de vue interrompues sont souvent plus puissants que l'explicite. <em>L'opacité de Glissant revient ici.</em> L'objectif qui respecte le droit à l'opacité dans les scènes érotiques fait l'un des travaux les plus politiques que le film lui demande.</li>
+<li><strong>La caméra enivrée.</strong> Pas laxiste. Pas auto-indulgente. <em>Enivrée.</em> Enivrée par la couleur, par la chaleur, par la proximité, par le rythme, par le désir, par la liberté. Particulièrement dans les scènes de forêt, les scènes de piscine, les scènes de danse, les scènes post-philtre d'amour, les moments d'effondrement psychique. Cela peut subtilement altérer obturateur, mouvement, durée, mise au point, cadrage, texture, comportement de la lumière. L'image visiblement affectée par ce qu'elle enregistre.</li>
+<li><strong>L'érotisme comme libération ET danger simultanément.</strong> C'est probablement la thèse-clé. L'érotique ouvre les gens. <em>L'ouverture est dangereuse, en particulier dans des conditions coloniales.</em> La tension entre libération et danger doit toujours rester vive dans l'image. La piscine est sacrée et la piscine est exposition. La forêt accueille et la forêt est l'endroit où arrivent les pires arguments. Le twerk est liberté et le twerk est capturé. La caméra tient les deux à la fois.</li>
+</ul>
+<div class="cross-pollination">
+<span class="cp-label">En conversation avec Evi / coiffure et maquillage et l'équipe sonique</span>
+<p>L'érotique vit à la surface de la peau et dans le rythme du tempo du corps. <strong>Evi bâtit la peau que nous filmons.</strong> Sueur, rougeur, la manière dont la chaleur se pose sur le visage, la manière dont les cheveux tiennent l'eau, le corps qui marque les moments, la manière dont Antoinette et Rochester enregistrent chacun la température différemment. L'équipe sonique bâtit l'architecture rythmique sur laquelle l'érotisme roule. <em>Le dub comme tempo corporel. La basse comme toucher.</em> L'objectif est le lieu de rencontre de ces décisions.</p>
+</div>
+<div class="script-note"><p><strong>Tiré du scénario :</strong> Scènes 13 à 19, nature, piscine, sexe, la vie érotique précoce de Granbois. Scène 17, le soir au hamac, « le ciel brûle rouge ». Scène 18, Antoinette lèche la sueur sur la poitrine de Rochester « comme des gouttes d'eau sur une feuille ». Scène 28, Amélie fait les cheveux d'Antoinette « en tirant fort ». Scène 34, Antoinette dans la chemise de Rochester avec les manches qui tombent de ses épaules. Scène 38, Antoinette voit Rochester et Amélie cadrés ensemble à travers la fenêtre. Scène 31, la fouille et le masque. Scène 91, Rochester se lace dans le corset. Scène 96, « Master of None », la séquence du twerk. Scène 83, le mirroring du salon rejoué depuis le POV d'Antoinette avec le souffle qui tourne. Le courant érotique court à travers chacune sur des fréquences différentes. Construis chacune à son propre registre.</p></div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-number">12</span>
+<h2 class="section-title">La possession par l'objectif / <em>le nom, le corps, l'empire, l'appareil</em></h2>
+<span class="section-sub">Pôle jumeau avec la liberté. L'image possède ou refuse de posséder</span>
+</div>
+<div class="section-body">
+<p>La possession est l'un des deux pôles du film. L'autre est la liberté. La tension entre les deux est l'endroit où vit presque chaque scène. Le rapport de l'image à la possession est son registre politique le plus important.</p>
+<p>La possession opère sur trois plans :</p>
+<p><strong>Possession matérielle.</strong> Rochester possédant légalement Antoinette à travers le régime du <em>Coverture</em>. Le renommer « Bertha ». Posséder le domaine. Le corps. Le nom. La possession de l'empire sur la terre et le travail. L'archive coloniale comme instrument de possession. <em>L'image participe à cette possession ou la refuse.</em> La composition qui cadre Antoinette comme objet de Rochester y participe. La composition qui la cadre comme quelqu'un que l'objectif ne peut pas tout à fait contenir la refuse.</p>
+<p><strong>Possession spirituelle.</strong> La possession vodou et obeah comme visitation, pas vol. Le Loa comme relation avec le monde ancestral, pas comme invasion. <em>Ce que le cadre colonial appelle folie ou sorcellerie est, sur ce registre, une forme de contact sacré.</em> L'objectif doit pouvoir enregistrer ce type de possession sans le pathologiser. L'image de Christophine dans son autorité spirituelle est différente en nature de l'image d'une personne « prise par-dessus ». Nous travaillons dans le premier registre.</p>
+<p><strong>Possession ancestrale.</strong> L'empire comme force possédante habitant Rochester. La structure qui l'a fait le chevauchant à la manière dont on peut être chevauché par un Loa qu'on n'a pas choisi. Son corps tend vers la libération pendant que son esprit conscient est occupé. L'image doit enregistrer cela. <em>Rochester n'est pas simplement un méchant. C'est un homme à l'intérieur d'une structure qui l'a pris.</em></p>
+<div class="provocation-box">
+<p class="box-label">La caméra comme possédée</p>
+<p>Je veux nommer quelque chose qui peut sembler abstrait mais qui je crois appartient à notre travail. <strong>L'image elle-même peut devenir possédée.</strong> Pas seulement les personnages. Le cadre qui perd sa certitude. La cinématographie infectée par l'environnement. Le système visuel qui se déstabilise. Le langage du film qui change au cours du film, pas aléatoirement, mais parce que le monde affecte l'appareil.</p>
+<p>Cela s'aligne avec la logique thermique, avec THE MISSING, avec l'architecture dub du registre sonore, avec l'afro-surréalisme, avec la possession, avec la folie-comme-accès. <em>Parfois la caméra doit se comporter comme si le film dans lequel elle est était entré en elle.</em></p>
+</div>
+<p>L'opacité revient comme outil ici. <strong>L'inverse de la possession est l'opacité.</strong> La possession exige une lisibilité et un contrôle totaux. L'opacité les refuse. L'objectif qui tient le droit à l'opacité est l'objectif qui refuse de participer à la possession.</p>
+<div class="cross-pollination">
+<span class="cp-label">En conversation avec Ola / costume</span>
+<p>Les objets les plus chargés de possession sont aussi des costumes. Rochester se lace dans un corset à la Scène 91. <strong>Ce corset est l'empire contractant le corps de l'homme qui le porte.</strong> Le neckerchief qu'Antoinette retire du cou de Rochester et noue autour de son propre poignet transfère la possession entre les corps. Hilda l'enfourne dans sa bouche pour s'empêcher de rire. L'objectif doit savoir que ces objets font un travail de possession matérielle, pas seulement habillent le comédien.</p>
+</div>
+<div class="script-note"><p><strong>Tiré du scénario :</strong> Scène 22, Rochester commence à appeler Antoinette « Bertha » pour la première fois, doucement, presque par jeu (« a good English name… Like… Bertha »). Scène 73, « Be reasonable Bertha » arrive comme une instruction froide à l'intérieur de la confrontation du salon, accompagnée du flash rouge profond. Scène 83, la séquence Bertha complète dans le salon se joue à travers le POV de Rochester et est ensuite rejouée entièrement à travers celui d'Antoinette, la nomination tranchée dans la seconde prise. La position de la caméra dans ces moments est en elle-même un choix politique. <em>L'objectif prend-il le parti de Rochester en la cadrant depuis son point de vue à lui, ou refuse-t-il en la tenant depuis le sien à elle ?</em> Le jeu doublé à la Scène 83 met en scène exactement cette question. Construis avec soin.</p></div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-number">13</span>
+<h2 class="section-title">La liberté par l'objectif / <em>THE MISSING AND Cosmic Archaeology</em></h2>
+<span class="section-sub">L'inquantifiable, l'incendie irrésistible, le retour à la maison</span>
+</div>
+<div class="section-body">
+<p>La liberté dans ce film est tenue en tension avec la possession à chaque niveau de l'image. Deux cadres jumelés ancrent la façon dont j'y pense.</p>
+<p><strong>THE MISSING.</strong> Le concept d'Arthur Jafa de ce qui ne peut pas être quantifié parce que nous ne savons pas ce qui a été perdu. Pas l'absence comme un trou mesurable, mais l'absence comme une étendue immesurable. Nous ne savons pas ce que nous avons perdu parce que nous ne savons pas ce que nous avons perdu. Le Passage du Milieu. Les langues qui n'ont pas survécu à la traversée. Les noms. Les relations. Les formes de savoir qui ont été détruites avant d'avoir pu être écrites. L'image doit trouver un moyen d'enregistrer cela. <em>Tu peux lire davantage sur THE MISSING dans mon film <a href="https://youtu.be/WqVq_QMH46E?si=KyHizT27xe-Aaft6" target="_blank" rel="noopener">Black to Techno (2019)</a>, où Errol et moi avons longuement travaillé avec cette idée.</em></p>
+<p><strong>Cosmic Archaeology.</strong> Un concept de mon cru, jumelé à THE MISSING. Toujours jumelé. Toujours avec AND, pas « associé à ». Le travail de trouver des fragments et de les utiliser pour reconstruire ce qui a été délibérément non-cartographié. <em>Travail de fragment-comme-code pan-humain, pan-africain.</em> Le point de rencontre du savoir passé, actuel et futur dans l'expérience vécue. Le sens de savoir quelque chose qu'on n'a jamais formellement appris, le corps qui arrive à une fréquence avant que l'esprit en ait la langue. <em>Le déjà-vu comme passage résonnant.</em> Le cadre du décodage : trouver le chiffre entre ce qui a été effacé et ce qui reste, utiliser ce chiffre pour décoder ce que le récit dominant insiste à dire perdu. L'image est l'un des endroits où ce décodage a lieu.</p>
+<p>THE MISSING est l'étendue immesurable. Cosmic Archaeology est la pratique de travailler dedans. <strong>La cinématographie de ce film est en dialogue avec les deux en permanence.</strong></p>
+<p>La liberté culmine dans l'incendie. Le but, d'après Toni Cade Bambara, est de rendre la révolution irrésistible. <em>Il y a un délice, une jouissance, une qualité choisie et savourée dans l'acte d'Antoinette qui brûle Thornfield.</em> L'image doit honorer cela. L'incendie n'est pas chaos. C'est précision. Antoinette abaisse sa main vers la nappe avec intention. Le conquérant pleure. La lignée patriarcale brûle. Antoinette marche l'escalier en cramoisi. Le mur de feu se tient derrière elle sur les remparts. L'image de la libération est exacte. Le choix était le sien. L'image est de son côté maintenant.</p>
+<p>Puis elle rentre chez elle en volant. La mer caraïbe à la fin est claire, éblouissante, sans sargasses. La lune orange-rouge. Le flamboyant. Le rire. <strong>Antoinette rentre chez elle.</strong> Pas une liberté abstraite. Pas la mort. Chez elle.</p>
+<ul class="threads">
+<li><strong>Arthur Jafa sur THE MISSING.</strong> La lignée Jafa-Eshun de la pensée de ce qui ne peut pas être mesuré. La question visuelle de comment enregistrer une absence non-enregistrée.</li>
+<li><strong>Cosmic Archaeology</strong> comme pratique de l'image dans le décodage. Le cadre qui tend à travers passé, présent et futur. Le corps qui arrive à un savoir avant la langue.</li>
+<li><strong>L'incendie comme image composée.</strong> L'abstraction chromatique de la séquence d'incendie (Section 08) est au service de cela. Antoinette en lumière rouge. Les portraits de la lignée patriarcale qui brûlent. Le conquérant qui pleure l'huile. L'escalier cramoisi. Le mur de feu.</li>
+<li><strong>Le retour à la maison.</strong> Antoinette aéroportée au-dessus d'une mer caraïbe claire, éblouissante, sans sargasses. La lune orange-rouge. Le flamboyant. L'image vers laquelle nous travaillons depuis le premier cadre.</li>
+</ul>
+<div class="script-note"><p><strong>Tiré du scénario :</strong> les Scènes 107 à 115 tiennent l'arc entier de la libération. La marche à travers le grenier avec la bougie et la corde qui brûle libre à la Scène 109. Le couloir des peintures et le conquérant qui pleure l'huile à la Scène 110. La nappe rouge enflammée à la Scène 111. L'escalier cramoisi à la Scène 112. Le mur de feu, la lune orange-rouge, et la seconde disparition thermique à la Scène 113. Antoinette en vol au-dessus de la mer claire éblouissante à la Scène 114. <strong>Et la nouvelle Scène 115</strong>, où la caméra respire avec Antoinette alors qu'elle traverse une nature caraïbe qui tient le cœur de la forêt, le jardin de Coulibri, la piscine de Granbois « tout dans un seul endroit et en un seul instant », avant de découvrir le flamboyant au-dessus d'elle et de rire. <em>Chaque décision cinématographique sur cette étendue est au service de l'irrésistibilité. Porte le travail avec ce poids.</em></p></div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-number">14</span>
+<h2 class="section-title">Afro-Surréalisme AND Afrofuturisme / <em>courants jumeaux</em></h2>
+<span class="section-sub">Rêve intérieur et forme arrivant en avant, nommés séparément, tenus ensemble</span>
+</div>
+<div class="section-body">
+<p>Deux traditions traversent l'infrastructure philosophique de ce film, et elles appartiennent au vocabulaire cinématographique. Elles sont distinctes. Je veux qu'elles soient nommées séparément pour qu'elles puissent être déployées séparément, et tenues ensemble pour qu'elles puissent être déployées en concert.</p>
+<p><strong>L'Afro-Surréalisme</strong> excave l'intérieur. L'état de rêve. L'irrationnel comme forme de dire-vrai. L'argument de l'image est que l'intérieur d'une personne, particulièrement une personne que le cadre dominant a appelée folle, est un lieu d'accès à un réel plus profond. L'Afro-Surréalisme se connecte directement à la folie-comme-accès, au monde intérieur d'Antoinette, aux séquences de forêt, aux Atlantians, aux états-seuils que le film n'arrête pas de traverser. L'image travaille vers l'intérieur. Elle n'insiste pas sur la lisibilité. Elle permet le rêve. Les références vivent dans le travail de Ted Joans, Jayne Cortez, Wangechi Mutu, Kara Walker.</p>
+<p><strong>L'Afrofuturisme</strong> regarde vers l'avant et vers l'extérieur. L'effondrement achronique du temps. L'ancêtre qui tend vers le futur. L'image arrivant d'un demain qui contient le passé en lui. L'Afrofuturisme se connecte à Drexciya et aux Atlantians, à l'écriture de Kodwo Eshun, à Sun Ra, à Underground Resistance, à l'effondrement temporel des séquences d'archive. L'image travaille à travers le temps. Elle ne se comporte pas chronologiquement. Elle permet à la mémoire et à la prévision d'occuper le même cadre.</p>
+<p><strong>Vusamazulu Credo Mutwa</strong>, le sanusi, conteur et gardien zoulou sud-africain du savoir cosmologique africain indigène, se tient à l'intersection de ces deux courants et à l'intersection de Cosmic Archaeology et du registre ancestral. Ses œuvres écrites, particulièrement <em>Indaba My Children</em> et <em>Africa Is My Witness</em>, sont de vastes réservoirs de pensée cosmologique pan-africaine que la modernité coloniale a systématiquement travaillé à effacer ou ridiculiser. L'un des penseurs les plus radicaux et les moins lus pour ce projet. L'image doit savoir que son travail est dans sa bedrock.</p>
+<p>Pour la cinématographie, ce ne sont pas des ajouts théoriques. Ce sont des grammaires opératives. Les Atlantians sont un événement visuel afro-surréaliste et afrofuturiste simultanément : des corps peints bleu-noir sur le fond de l'océan, mémoire ancestrale et forme arrivant en avant à la fois. <em>Passé, présent et futur à l'intérieur d'un seul corps.</em> Les séquences de forêt sont territoire afro-surréaliste : rêve, intérieur, seuil. Les intercoupes d'archive sont territoire afrofuturiste : le temps qui s'effondre, l'ancêtre qui parle en avant.</p>
+<div class="cross-pollination">
+<span class="cp-label">En conversation avec Ola / costume et Evi / coiffure et maquillage</span>
+<p>Les Atlantians sont un problème cinématographique à trois départements. <strong>Leurs corps sont peints, pas habillés.</strong> Ola confirme et cadre l'absence de tissu. Evi mélange et applique la peinture bleu-noir, et la peinture doit se lire comme l'océan profond fait chair, pas comme un bleu stylisé. <em>La cinématographie est responsable de la manière dont la peinture se pose sur différents corps sous différentes lumières, et de la manière dont les Atlantians se lisent contre les vêtements lourds de tous les autres costumes du film comme contraste délibéré et chargé.</em> Planifie des essais caméra avec la peinture sur les corps réels, dans l'eau réelle, avec les lumières réelles, tôt en prép.</p>
+</div>
+<div class="script-note"><p><strong>Tiré du scénario :</strong> les Atlantians apparaissent dans les séquences sous-marines des Sargasses et réapparaissent à intervalles tout au long. Scène 97, l'ancêtre arawak parle contre l'écran noir. Les séquences de forêt des Scènes 31, 32, 33 et 76. L'effondrement achronique aux Scènes 109 à 111 où l'archive de Thornfield qui brûle entre dans le présent. <em>Chacune est l'un de ces deux courants qui parle.</em></p></div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-number">15</span>
+<h2 class="section-title">Un affluent / <em>zombi, zonbi, mort-vivant</em></h2>
+<span class="section-sub">Une ligne de pensée entrant depuis un document séparé, à venir</span>
+</div>
+<div class="section-body">
+<p>Cette section est un affluent, pas une section complète. <strong>Je développe un document Tributaries séparé</strong> qui étendra ce matériau pleinement. Je le nomme ici parce que la cinématographie du film ne peut pas se préparer pleinement sans savoir que ce courant traverse le travail.</p>
+<p>La figure haïtienne / caraïbe francophone du <strong>zombi</strong> (parfois orthographié <em>zonbi</em>, et connu en français comme le <strong>mort-vivant</strong>) n'est pas le « zombie » hollywoodien. Nous utilisons <em>zombi</em>, <em>zonbi</em>, ou <em>mort-vivant</em> là où le contexte est haïtien ou caraïbe francophone, pour distinguer entièrement du registre hollywoodien. Le zombi est une figure de <strong>souveraineté suspendue</strong>. Un corps vivant mais dépossédé. Une vie séparée de la volonté, de la mémoire, du nom, de la liberté, ou de la reconnaissance sociale. La réplique d'Antoinette dans le scénario, <em>« there are two deaths »</em>, place déjà l'histoire à l'intérieur du seuil qu'occupe le zombi. Antoinette, Annette, et (différemment) Rochester portent tous des états-zombi à certains moments. La chair bouge. La volonté en a été séparée.</p>
+<p>Pour la cinématographie, c'est un problème visuel avant d'être un problème d'interprétation. <em>Comment l'image enregistre-t-elle un corps qui n'est plus pleinement en possession de lui-même ?</em> Pas de mélodrame. Pas de clichés d'horreur. Quelque chose de plus calme et plus précis. Le corps qui bouge mais n'habite pas son mouvement. L'œil qui s'ouvre mais ne regarde pas. La main qui exécute une action qu'elle ne choisit pas. L'image doit trouver des manières de tenir cet état sans le sensationnaliser.</p>
+<ul class="threads">
+<li><strong>Zora Neale Hurston, <em>Tell My Horse: Voodoo and Life in Haiti and Jamaica</em></strong> (1938), le compte rendu de Hurston de son travail de terrain des années 1930.</li>
+<li><strong>Alfred Métraux, <em>Le Vaudou haïtien</em></strong>, en particulier les passages sur la mort, la possession, le rituel et la croyance zombi.</li>
+<li><strong>Wade Davis, <em>The Serpent and the Rainbow</em></strong>, utilisé de manière critique plutôt qu'acritique.</li>
+<li><strong>Hans W. Ackermann et Jeanine Gauthier, « The Ways and Nature of the Zombi »</strong> pour les typologies et le cadrage académique.</li>
+<li><strong>Kette Thomas, « Haitian Zombie, Myth, and Modern Identity »</strong> pour le zombi comme subjectivité, identité, et figure postcoloniale.</li>
+</ul>
+<div class="tributary-box">
+<p class="box-label">Une note sur le document Tributaries</p>
+<p>L'extension complète de cette ligne, à côté d'autres affluents adjacents (archives noires via Dorothy Berry, technopoétique noire via Louis Chude-Sokei, cadres nagual et tonal, le serpent cosmique de Jeremy Narby, femmes cubaines et révolution via <em>Lucía</em> de Humberto Solás, auto-détermination radicale noire via Harry Haywood, son noir ésotérique via Divine Styler), vit dans le document <em>Tributaries</em> à venir. Il arrivera séparément et devra être lu à côté de cette bedrock. <strong>Aucun de ces courants ne remplace le cadre existant. Ils le nourrissent.</strong></p>
+</div>
+<div class="script-note"><p><strong>Tiré du scénario :</strong> « there are two deaths » d'Antoinette. Scènes 101 à 108 dans le grenier, où le corps est rendu de plus en plus dépossédé avant le moment de réclamation à la Scène 109. Le scénario ne nomme pas ces états comme zombi. La cinématographie peut les lire ainsi.</p></div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-number">16</span>
+<h2 class="section-title">L'archive comme hantise, pas comme insert / <em>un autre registre du film</em></h2>
+<span class="section-sub">Infiltration, intrusion, interruption ancestrale</span>
+</div>
+<div class="section-body">
+<p>Les séquences d'archive de ce film ne sont pas des inserts explicatifs. Ce ne sont pas des notes historiques. Ce ne sont pas des citations politiques posées à côté du récit. <strong>L'archive n'est pas en-dehors du film. L'archive est un autre registre du film.</strong></p>
+<p>Le principe cinématographique : le matériau d'archive arrive comme <em>intrusion</em>, <em>infiltration</em>, <em>hantise</em>, <em>effondrement temporel</em>, <em>interruption ancestrale</em>. La chronologie du film est achronique. L'archive est l'un de ses temps, pas une parenthèse d'un autre temps.</p>
+<p>Plus important, l'incendie de Thornfield à partir de la Scène 109 est le moment où l'archive devient littérale dans l'image. <em>Du matériau d'archive réel commence à émerger à l'intérieur du cadre</em> pendant qu'Antoinette marche encore le périmètre du grenier, avant qu'elle n'ait atteint le couloir ou la salle à manger. <strong>FLASH OF ARCHIVE FOOTAGE</strong> est un marqueur récurrent que le scénario utilise à l'intérieur même de la Scène 109 : Tacky's Rebellion, l'image des Ibos qui débarquent, une peinture iconique d'un prisonnier politique ; puis un portrait de Charlotte Brontë, la couverture de <em>Jane Eyre</em>, une Jane Eyre vivante respirante habillée exactement comme la peinture The Miller's Daughter de l'enfance d'Antoinette, ses yeux qui bougent ; puis Nanny Maroon, une carte des îles du Vent, Judith décapitant Holopherne, la mer des Sargasses, Jean Rhys, une carte de la Jamaïque, un billet de la Bank of England ; puis Double Consciousness de W.E.B. Du Bois, Drexciya, des images de rébellion à travers les cultures (Révolution Haïtienne, Révolution Française, Viet Cong), Patrice Lumumba, 2Pac sur MTV en 1994. <strong>La révolution rendue irrésistible inclut l'incinération littérale de l'architecture de papier de l'empire, et l'émergence de chaque contre-archive que l'empire a tenté d'enterrer.</strong> Au moment où Antoinette atteint le couloir à la Scène 110 et la salle à manger à la Scène 111, l'archive n'est plus en-dehors de la pièce. Elle est dans la pièce avec elle, chevauchant le même feu.</p>
+<ul class="threads">
+<li><strong>L'archive coloniale comme matériau brut.</strong> Actes de propriété, inventaires d'esclaves, livres comptables de plantation, manifestes de navires, contrats d'indenture, comptes rendus de tribunaux, articles de journaux sur les rébellions, annonces de fuyards, correspondance missionnaire, planches d'enquêtes d'histoire naturelle. La recherche d'image inclut d'identifier quels documents apparaîtront à l'intérieur de l'incendie.</li>
+<li><strong>Archives photographiques de la Caraïbe.</strong> Le studio d'Adolphe Duperly. Matériau de la fin du XIXe et du début du XXe siècle. Daguerréotypes. Approché avec la méthodologie de Tina Campt « <em>listening to images</em> » comme une voix dans la constellation, pas le centre.</li>
+<li><strong>Dorothy Berry sur l'archive noire.</strong> <em>The House Archives Built and Other Thoughts on Black Archival Possibilities.</em> Les archives non comme simple stockage, mais comme des sites inachevés d'imagination, de récupération et de fabrication de futur. Mémoire institutionnelle versus mémoire héritée. L'archive comme maison, comme architecture, comme structure. <em>Utile pour ce film parce que nous pensons déjà à travers maisons, greniers, ruines de plantations, archives qui brûlent, et ce qui survit matériellement, spirituellement, et ancestralement.</em></li>
+<li><strong>L'archive comme technologie-fantôme.</strong> L'image tient le document à la manière dont une maison hantée tient un ancien occupant. L'archive n'explique pas. Elle hante.</li>
+<li><strong>Noir et blanc</strong> comme le registre d'archive qui croise occasionnellement l'image vivante. La frontière entre le passé et le présent s'estompe au niveau de l'étalonnage tonal.</li>
+</ul>
+<div class="cross-pollination">
+<span class="cp-label">En conversation avec Nora / direction artistique</span>
+<p>L'archive littérale qui brûle dans la séquence de Thornfield est une décision direction artistique et cinématographie en synchronisation. <strong>Quels documents sont dans la maison. Comment ils ont été rangés. Comment ils sont rendus lisibles à la caméra alors qu'ils commencent à brûler. Comment le feu prend le papier et l'encre et comment l'objectif lit cette prise.</strong> Teste avec les documents réels sous l'effet pratique de feu réel tôt en prép.</p>
+</div>
+<div class="script-note"><p><strong>Tiré du scénario :</strong> Scène 109 et après, Antoinette marche le périmètre du grenier avec la bougie, brûle la corde sur ses poignets, et l'archive commence à émerger en flashes à côté d'elle. Aux Scènes 110 et 111, l'archive et l'image vivante sont entrelacées continûment. Le scénario nous invite à sortir du récit contenu et à nous précipiter dans sa prise de liberté à ce moment-là. L'archive fait partie de la manière dont la cinématographie honore cette précipitation.</p></div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-number">17</span>
+<h2 class="section-title">La météo comme force dramaturgique / <em>le ciel comme co-auteur</em></h2>
+<span class="section-sub">Pluie avant éruption. Humidité avant confrontation. Vent avant libération</span>
+</div>
+<div class="section-body">
+<p>La météo dans ce film n'est pas un arrière-plan. <strong>La météo est dramaturgie.</strong> Elle change la psychologie, le rythme, le pouvoir, l'intimité, la visibilité, le silence. Le rapport du cinématographe à la météo doit être presque musical. Nous n'attendons pas la météo. Nous composons avec elle.</p>
+<p>Pluie avant éruption. Humidité avant confrontation. Air immobile avant fracture psychique. <em>Vent avant libération.</em> Ce ne sont pas des coïncidences dans le scénario. C'est l'argument du scénario que le ciel est un personnage. Le travail de l'image est d'honorer cela.</p>
+<ul class="threads">
+<li><strong>Pluie.</strong> La séquence d'arrivée au village de Massacre à la Scène 5. La pluie sur les livres de droit de Rochester dans la forêt. La pluie après l'incendie de Coulibri. La pluie qui enregistre des choses différentes sur différents corps. <em>La même averse peut être un baptême ou une humiliation selon le corps qui est dedans.</em></li>
+<li><strong>Humidité.</strong> L'air épais de Granbois. La pièce à chaleur scellée de Daniel. L'air autour d'une chose non-dite. <em>L'image de l'humidité est dans la surface de la peau, la brume de la distance, la manière dont les vêtements pendent plus lourds qu'ils ne devraient.</em></li>
+<li><strong>Air immobile.</strong> Le moment avant qu'une confrontation n'éclate. La pièce avant que quelqu'un ne dise la chose. L'absence de vent comme présence elle-même. L'objectif peut enregistrer l'immobilité comme quelque chose qui presse.</li>
+<li><strong>Vent.</strong> Les cheveux d'Annette sur la véranda. Le vent dans les phalènes autour de la bougie. Le vent à travers la fenêtre du grenier une fois descellée. <em>Le vent sur les remparts de Thornfield qui soulève les cheveux d'Antoinette derrière elle et fait partie de la manière dont elle rentre chez elle.</em> Le vent comme météo de la libération.</li>
+<li><strong>Le soleil.</strong> Le soleil caraïbe comme implacable, intransigeant, la source qui ne lâche pas. Le soleil anglais comme faible, bas, drainé. La même étoile, deux présences ressenties différentes. L'image doit rendre la différence lisible.</li>
+<li><strong>Nuage.</strong> Le vocabulaire de nuage du ciel caraïbe. Les systèmes en mouvement rapide. L'ombre d'un seul nuage qui traverse un flanc de colline. <em>La forêt lue contre les changements de nuage au-dessus.</em></li>
+</ul>
+<div class="script-note"><p><strong>Tiré du scénario :</strong> Scène 5, la pluie au village de Massacre. L'incendie de Coulibri arrive à l'intérieur de la confrontation aux Scènes 61 à 71, le ciel porté par le récit plutôt que par la chronologie. Scène 113, le vent sur les remparts. Suis la météo dans le scénario comme tu suivrais un personnage.</p></div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-number">18</span>
+<h2 class="section-title">Le temps comme texture / <em>la température ressentie d'une image</em></h2>
+<span class="section-sub">Certaines images anciennes. Certaines futuristes. Certaines déjà perdues</span>
+</div>
+<div class="section-body">
+<p>Nous avons parlé de l'achronie comme principe structurel. Je voudrais que nous pensions aussi au <strong>temps comme texture</strong> dans l'image elle-même, pas seulement comme choix structurel au montage. Le temps est quelque chose que la cinématographie peut <em>ressentir</em>, indépendamment de l'intrigue.</p>
+<p>Certaines images doivent sentir <em>anciennes</em>. Plus vieilles que l'époque dans laquelle le film se situe. Les séquences de forêt. L'ancêtre arawak. Les Atlantians. L'image comme quelque chose que la caméra a atteint après une longue marche à travers l'histoire.</p>
+<p>Certaines images doivent sentir <em>futuristes</em>. Plus nouvelles que le moment qu'elles dépeignent. Les séquences thermiques. Le dancehall achronique dans la forêt. Le vol d'Antoinette à la fin. L'image comme quelque chose qui arrive d'un demain que nous ne pouvons pas tout à fait nommer.</p>
+<p>Certaines images doivent sentir <em>suspendues</em>. Le temps tenu. Sous l'eau. La piscine. La pause avant que Rochester ne tire le drap sur le visage endormi d'Antoinette à la Scène 77. L'image comme un moment qui refuse d'avancer.</p>
+<p>Certaines images doivent sentir <em>rappelées</em>. Les flashbacks, mais pas seulement les flashbacks. Les scènes de Coulibri vues depuis la distance du grenier adulte d'Antoinette. Le rapport du film à la mémoire propre de la protagoniste de son enfance. L'image avec la patine d'être rappelée. <em>Toute la séquence de confrontation des Scènes 42 à 71 vit dans ce registre, et elle le pousse à un point que le film n'a pas encore visité : l'image n'est pas seulement rappelée, elle est dite à un témoin pendant qu'elle se rappelle à elle-même.</em></p>
+<p>Certaines images doivent sentir <em>déjà perdues</em>. Celles que nous savons ne reviendront pas. Annette avant l'incendie. Coulibri avant sa destruction. La mère de Tia avant la lapidation. L'image à l'instant de sa propre élégie.</p>
+<p>La texture du temps est produite par des choix précis. Cadence d'image. Angle d'obturateur. Caractère de l'objectif. Grain. Étalonnage colorimétrique. Mouvement. Durée. Aucun de ces choix ne nomme le temps, mais chacun donne à l'image une température différente sur l'échelle temporelle. <em>Le cinématographe est une sorte d'horloger. L'image est une sorte d'horloge.</em></p>
+<div class="cross-pollination">
+<span class="cp-label">En conversation avec Errol / sonique</span>
+<p>C'est directement aligné avec l'architecture sonique qu'Errol construit. Le dub comme architecture du temps. L'échantillon comme moment d'ailleurs arrivant dans le présent. Le dropout, le delay, l'écho. <em>L'image et le son opèrent sur la même philosophie temporelle.</em> Coordonne les décisions de cadence d'image et d'angle d'obturateur avec la logique de tempo du sound design tôt.</p>
+</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-number">19</span>
+<h2 class="section-title">Résidu / <em>ce que le cadre tient après que le corps l'a quitté</em></h2>
+<span class="section-sub">L'empreinte, la lumière qui s'attarde, la pièce qui se souvient</span>
+</div>
+<div class="section-body">
+<p>Le résidu est l'un des principes cinématographiques les plus importants pour ce film. <strong>Le cadre qui tient ce qui était là il y a un instant.</strong> L'empreinte d'un corps sur un lit. Le creux dans le hamac après qu'Antoinette s'est levée. L'eau dans la piscine qui bouge encore après que la nageuse a refait surface. La cigarette qui brûle encore dans le cendrier. La lumière qui s'attarde dans une pièce après que la bougie a été déplacée.</p>
+<p>Le résidu opère sur trois registres, comme tout dans ce film.</p>
+<ul class="threads">
+<li><strong>Résidu matériel.</strong> La marque physique de la présence. L'empreinte de pied, le creux, l'anneau humide sur la table, la trace sur le verre, la poussière déplacée. L'image du monde un instant après qu'il a été touché.</li>
+<li><strong>Résidu spirituel.</strong> L'atmosphère d'une pièce après l'acte. Le monticule dans le coin de Daniel (le résidu Obeah : terre noire, peau morte, plumes). <em>La pièce elle-même altérée par ce qui s'y est passé.</em> L'objectif doit pouvoir lire cela. Certaines pièces sont plus calmes après une chose que d'autres. Certaines pièces accumulent.</li>
+<li><strong>Résidu ancestral.</strong> Ce que la terre se rappelle. Ce que la grande maison porte. Ce que l'archive coloniale contient. L'image du lieu comme vaisseau du temps. <em>Le paysage caraïbe est dense de cela. Le paysage anglais en porte une version différente.</em></li>
+</ul>
+<p>Cinématographiquement, le résidu signifie souvent <strong>tenir le plan au-delà du moment où l'action s'achève</strong>. La caméra ne coupe pas quand le comédien sort. La pièce continue. La lumière continue. Le monde continue. <em>Le plan gagne le droit à sa propre existence en restant après que le corps est parti.</em></p>
+<div class="cross-pollination">
+<span class="cp-label">En conversation avec Nora / direction artistique</span>
+<p>Le résidu est en partie un problème de design et en partie un problème d'objectif. <strong>Nora habille les pièces pour ce qu'elles tiennent avant même que le comédien n'entre. L'objectif enregistre ce qu'elles tiennent après que le comédien est parti.</strong> La cuisine de Christophine connaît des choses que la salle à manger ne connaîtra jamais, et l'objectif doit être prêt à enregistrer ce savoir dans la pièce vide autant que dans la pièce pleine.</p>
+</div>
+<div class="script-note"><p><strong>Tiré du scénario :</strong> Scène 37, le monticule de terre noire, de peau morte et de plumes dans le coin de Daniel. Résidu comme accumulation physique d'Obeah dans le coin d'une pièce. L'objectif doit lire cela non comme habillage de plateau mais comme reliquat sacré que la pièce garde.</p></div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-number">20</span>
+<h2 class="section-title">Le monde matériel par l'objectif / <em>objets, éphémères, ce que la caméra tient</em></h2>
+<span class="section-sub">Une courte liste d'objets qui font un vrai travail dans l'image</span>
+</div>
+<div class="section-body">
+<p>Le scénario est précis et obsessionnel sur les objets. Chacun de ceux-ci fait un travail que la caméra doit honorer. Ce ne sont pas des accessoires. Ce sont des participants. Une courte liste à garder à portée de main pendant que nous planifions.</p>
+<ul class="threads">
+<li><strong>La peinture du conquérant (Scène 110).</strong> Antoinette s'arrête devant une peinture dans le couloir des peintures : un conquérant à cheval tenant le drapeau britannique. Elle regarde sans broncher, puis frappe délibérément une bougie en arrière vers le portrait. <em>Alors que les flammes prennent la toile, la caméra va en gros plan sur le visage du conquérant. La peinture à l'huile des yeux fond et coule sur le visage, donnant l'illusion que le conquérant pleure en brûlant.</em> Un effet pratique que la cinématographie doit honorer. Coordination avec les effets spéciaux et un peintre spécialiste. La peinture est un hero prop, un personnage dans le battement.</li>
+<li><strong>Les portraits de la lignée patriarcale (Scène 111).</strong> Le vieux Mr Rochester, son père, le père de son père. Trois générations de propriétaires terriens anglais. L'image de l'héritage qui brûle. Éclaire-les comme des témoins, pas comme de la décoration.</li>
+<li><strong>Les deux nappes rouges (Scènes 37 et 111).</strong> La nappe rouge sang chez Daniel. La nappe rouge d'Antoinette à Thornfield. <em>Un rouge répond à un autre à travers les continents.</em> L'objectif lit chacune.</li>
+<li><strong>Les clés à la taille de Grace (Scènes 105 et 109).</strong> Variées en taille, en fer forgé, fièrement encombrantes. La confiance architecturale de la possession impériale qui veut que ses clés soient sans équivoque. Les clés s'annoncent quand elle marche. L'image enregistre le son d'elles autant que l'apparence.</li>
+<li><strong>Le neckerchief.</strong> Antoinette le retire du cou de Rochester à la Scène 6 et le noue autour de son propre poignet. Suis cet objet à travers le film. Hilda l'enfourne dans sa bouche pour s'empêcher de rire. À la Scène 45, un flash intrusif révèle Mr Mason portant un neckerchief serré « comme Rochester à son arrivée à Granbois », le même objet traversant les générations à l'intérieur du récit d'Antoinette à Rochester. L'objet qui transfère entre les corps, qui porte la possession avec lui.</li>
+<li><strong>Le corset dans lequel Rochester se lace (Scène 91).</strong> La retenue de l'empire sur son propre agent. Lin et baleine. La caméra lit le souffle dedans et contre.</li>
+<li><strong>Le mortier dans la cuisine de Christophine.</strong> Forme africaine portée à travers la traversée. Bois lourd, pilon long. Le tambour de la cuisine.</li>
+<li><strong>Les boucles d'oreilles en or aux lobes de Christophine.</strong> Héritage d'orfèvrerie akan, or travaillé à la main, porté à travers le Passage du Milieu comme l'une des rares formes de richesse qui pouvait être cachée, fondue, retravaillée, gardée. L'objectif les lit comme ornement et comme poids.</li>
+<li><strong>La bougie et le bougeoir (Scène 109).</strong> La seule source de lumière dans la transformation du grenier. Conçus pour être portés, pour jeter des mares, pour ne pas atteindre les murs. La source de lumière pratique la plus importante du film.</li>
+<li><strong>L'horloge à coucou (Scène 96).</strong> Le coq mécanique qui chante. Kitsch domestique colonial comme comédie, présage, horreur, et oiseau-mari de Bertha à la fois. La caméra le lit sur plusieurs fréquences.</li>
+<li><strong>Le monticule de terre noire, de peau morte et de plumes dans le coin de Daniel (Scène 37).</strong> Résidu Obeah. Reliquat sacré. Pas de l'habillage.</li>
+<li><strong>Le portrait d'Annette (Scène 8).</strong> « L'imitation créole de la dame anglaise du manoir ». La peinture comme technologie coloniale de légitimation. L'objectif lit ce que le portrait performe. <em>Et le portrait The Miller's Daughter qui hante l'enfance d'Antoinette à travers les flashs intrusifs de la confrontation : la première peinture qui devient ses yeux sont vivants, qui devient elle bouge ses yeux pour me regarder, qui devient finalement la jeune femme dans la peinture l'aide à comprendre. La peinture comme témoin à travers le temps.</em></li>
+</ul>
+<div class="cross-pollination">
+<span class="cp-label">En conversation avec Nora / direction artistique et Ola / costume</span>
+<p>Chacun de ces objets a été ou est conçu en détail avec les départements de design et de costume. <strong>La conversation cinématographique à leur sujet a lieu tôt, à côté de la conversation de design, pour que le choix d'objectif et le choix d'éclairage pour chaque objet soit en dialogue avec la manière dont il a été fait.</strong> Un hero object qui a été construit avec soin peut encore mourir dans le cadre si la décision d'objectif autour n'a pas été pensée. Joins-toi à ces conversations pendant la prép.</p>
+</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-number">21</span>
+<h2 class="section-title">Mise en scène / <em>l'argument composé de l'ensemble</em></h2>
+<span class="section-sub">Le cadre intégré. Le lieu de rencontre de chaque département</span>
+</div>
+<div class="section-body">
+<p>Je veux nommer ceci directement parce que c'est ma façon de penser et cela façonne tout ce que nous faisons. <strong>La mise en scène n'est pas l'arrangement d'éléments dans un cadre. C'est la construction d'un monde matériel saturé dans lequel chaque élément participe à l'argument de la scène.</strong> Direction artistique, costume, coiffure et maquillage, éclairage, blocking, son, jeu, quand tous travaillent ensemble de la manière dont je voudrais qu'ils travaillent, le cadre fait plus qu'enregistrer. Il compose un monde.</p>
+<p>Cela signifie que nos conversations de prép doivent être inter-départementales et continues. La relation entre ce qui est bâti, habillé, porté, maquillé, éclairé, mis en place et enregistré est trop importante pour être séquentielle. <em>La même pièce, éclairée de deux manières différentes, peut être deux pièces différentes. Le même mur, peint d'une teinte différente, peut refuser la lumière que nous voulons. Le même corps, habillé un peu plus lourd que ce que la chaleur permet, peut changer la démarche du comédien, ce qui change le cadrage, ce qui change le montage.</em> Tout est dans tout.</p>
+<p>La cinématographie est à l'intérieur de cette composition. <strong>Pas au-dessus, pas en dessous.</strong> L'image est le lieu de rencontre où le travail de chaque département s'harmonise ou s'argumente. Le caméraman et le directeur de la photographie sont dans la même pièce que la directrice artistique, la costumière et la maquilleuse-coiffeuse, et la superviseuse du son, et le travail se passe sur le même plan.</p>
+<div class="cross-pollination">
+<span class="cp-label">En conversation avec Nora, Ola, Evi, Sarah, l'AD et la script supervisor</span>
+<p>Le quatuor créatif à la caméra est moi-même, le cinématographe, la script supervisor et l'AD. Autour de ce quatuor, les départements de design sont en conversation continue avec l'objectif. <strong>Je voudrais que la prép soit une série de réunions inter-départementales autant qu'une série de réunions à département unique.</strong> Joins-toi à elles. L'image de ce film va se faire dans les pièces où quatre ou cinq départements parlent en même temps, pas dans la pièce d'un seul département seul.</p>
+</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-number">22</span>
+<h2 class="section-title">Une constellation plus vaste / <em>références, provocations, compagnons</em></h2>
+<span class="section-sub">Pas une liste. Un champ à traverser</span>
+</div>
+<div class="section-body">
+<p>Ce qui suit est une constellation de références pour l'image de ce film. Je voudrais qu'elle se comporte comme provocation, pas comme prescription. Tire ce qui est utile. Conteste ce qui ne l'est pas. Ramène des choses qui ne sont pas ici et qui devraient l'être.</p>
+<p>J'ai été délibérée dans le fait de puiser largement, en particulier dans les traditions de cinéma et d'image qui ne sont pas habituellement regroupées avec ce matériau. L'instinct est que le dialogue cinématographique le plus intéressant se passe aux points de rencontre improbables. Le rapport du cinéma cubain à la révolution. Le rapport du cinéma africain à la terre et à la langue. Le rapport du cinéma asiatique à l'espace intérieur. Le rapport du cinéma latino-américain à la mémoire et à l'oligarchie. Le rapport du cinéma indigène au vu et au sacré. Le rapport du cinéma européen à la couleur et à la durée. Le rapport du cinéma MENA à l'occupation et à l'exil. Chaque tradition a quelque chose à dire à ce film.</p>
+<p>Les références plus proches, la lignée de l'image en mouvement noire en particulier, sont aussi présentes. Elles font partie de la constellation plus vaste plutôt que de la lignée centrale organisatrice. <em>Le but est la largeur.</em></p>
+
+<ul class="threads">
+<li><strong>Cinéma cubain.</strong> Tomás Gutiérrez Alea (<em>Memorias del Subdesarrollo</em>). Sara Gómez (<em>De Cierta Manera</em>). Humberto Solás (<em>Lucía</em>). L'argument du cinéma cubain avec la révolution, le genre, la race et la conscience historique.</li>
+<li><strong>Cinéma africain.</strong> Djibril Diop Mambéty (<em>Touki Bouki</em>). Ousmane Sembène. Med Hondo. Sarah Maldoror (<em>Sambizanga</em>). Souleymane Cissé (<em>Yeelen</em>). Haile Gerima. Terre, langue, la caméra comme instrument décolonial.</li>
+<li><strong>Cinéma asiatique.</strong> Akira Kurosawa, en particulier <em>Rashomon</em>, qui se tient très près de l'architecture cinématographique de deux scènes de ce film : la rejouée à perspectives doublées de la Scène 83, où le mirroring du salon entre Antoinette et Rochester est rejoué en entier depuis le POV d'Antoinette après avoir d'abord joué depuis celui de Rochester, et le Tryptic aux Scènes 93/94/95, où Daniel, Baptiste et Christophine sont re-vus selon leurs propres termes dignes après le cadrage hostile que Rochester leur avait imposé plus tôt. Même matériau, deux vérités, aucune n'étant la correction de l'autre. Kim Ki-young. Hiroshi Teshigahara (<em>La Femme des Sables</em>). Shōhei Imamura. Corps dans le paysage, intériorité, éros et déclin.</li>
+<li><strong>Cinéma latino-américain.</strong> Glauber Rocha et Cinema Novo. Jorge Sanjinés. Patricio Guzmán. Lucrecia Martel. Lisandro Alonso. Mémoire, géographie, politique de la durée.</li>
+<li><strong>Cinéma indigène.</strong> Merata Mita (Māori). Zacharias Kunuk (Inuit, <em>Atanarjuat</em>). La terre comme ancêtre. L'image qui n'aplatit pas la cosmologie.</li>
+<li><strong>Cinéma européen.</strong> Claire Denis (en particulier <em>Beau Travail</em> et <em>Chocolat</em>, directement pertinents ici). Chantal Akerman. Pedro Costa. Miguel Gomes (<em>Tabu</em>). Couleur, durée, le cadre hanté.</li>
+<li><strong>Cinéma MENA.</strong> Youssef Chahine. Nacer Khemir. Elia Suleiman. Kamal Aljafari. Occupation, exil, le rapport de la caméra à la dépossession.</li>
+<li><strong>La forêt.</strong> Apichatpong Weerasethakul. Arbres, lumière, temps, fantôme.</li>
+<li><strong>Durée et intériorité.</strong> Andreï Tarkovski. Terrence Malick. La caméra comme vaisseau pour l'attention lente.</li>
+<li><strong>Le cadre comme architecture psychologique.</strong> Alfred Hitchcock.</li>
+<li><strong>Le visage comme paysage.</strong> Ingmar Bergman.</li>
+<li><strong>Les images de Vodou.</strong> Le matériau haïtien de Maya Deren spécifiquement. <em>Divine Horsemen.</em> Une référence visuelle primaire pour le registre spirituel de ce film, en particulier les séquences de possession.</li>
+</ul>
+
+<div class="provocation-box">
+<p class="box-label">Photographie</p>
+<p><strong>Roy DeCarava</strong> comme mémoire-image centrale de ce film. La profondeur de ses noirs. La manière dont la lumière entre dans l'espace sombre et l'articule sans l'aplatir. <em>The Sweet Flypaper of Life</em>, sa collaboration avec Langston Hughes. Le Kamoinge Workshop. Seydou Keïta. Malick Sidibé. Sory Sanlé. Zanele Muholi. L'archive d'image de l'intériorité noire qui n'a pas besoin de se traduire pour être lisible. Passe du temps avec ces œuvres avant de commencer.</p>
+</div>
+
+<div class="provocation-box">
+<p class="box-label">Peinture</p>
+<p>Francisco Goya, en particulier les peintures noires tardives. L'image à la limite de la représentation, là où le tableau ne cherche plus à rassurer. Le Caravage, la lumière comme architecture morale. <em>Là où la lumière tombe est là où la question est posée.</em> Kerry James Marshall, la figure noire peinte dans le canon avec tout son poids chromatique et historique. Lynette Yiadom-Boakye, la figure qui ne demande pas la permission du spectateur.</p>
+</div>
+
+<p>L'image la plus utile que tu trouveras pour ce film est probablement une qui n'apparaît dans aucun des noms ci-dessus. <strong>Apporte-la.</strong></p>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<span class="section-number">23</span>
+<h2 class="section-title">La caméra qui écoute / <em>un accord de clôture</em></h2>
+<span class="section-sub">L'objectif qui ne fait pas que regarder</span>
+</div>
+<div class="section-body">
+<p>Je veux terminer là-dessus parce que c'est l'aspiration qui se tient en dessous de tout le reste dans ce document. <strong>La caméra dans ce film doit parfois sentir qu'elle écoute.</strong> Pas seulement regarder. <em>Écouter.</em></p>
+<p>Écouter les corps. Écouter les environnements. Écouter les ancêtres. Écouter le silence. Écouter le résidu. Écouter les fréquences. Écouter la chaleur. Écouter la mémoire.</p>
+<p>C'est rare à articuler en langage cinématographique. Les arts visuels ont une longue histoire de description de l'œil et une histoire plus courte d'admission que l'œil est aussi, parfois, une oreille. La pratique de Tina Campt « écouter les images » est l'un des endroits où cela a été nommé, mais cela va plus loin. <em>La caméra qui écoute est la caméra qui sait quand attendre, quand tenir, quand s'abaisser, quand ne pas prendre.</em></p>
+<p>Les aspirations les plus profondes du film vivent dans ce registre. La forêt qui écoute. La cuisine de Christophine qui écoute. La rivière au lavage du linge qui écoute le chant que les femmes mènent et l'eau qui tambourine en-dessous. Le grenier, à la Scène 109, qui devient une pièce qui écoute plutôt qu'une pièce qui contient. <em>L'objectif à son plus attentif fait le même travail que la basse dans le registre sonore : tenir le champ, accompagner, ne pas insister.</em></p>
+<p>Si la cinématographie de ce film fait bien son travail, un public sentira parfois que l'image l'a entendu.</p>
+<div class="script-note"><p><strong>Tiré du scénario :</strong> Scène 39, les femmes qui lavent le linge blanc dans la rivière, Christophine qui mène le chant de travail, le son rythmique de l'eau qui tambourine s'élevant à mesure qu'Antoinette s'approche. La rivière est un instrument de percussion. L'image est en relation audible avec elle. <em>C'est la caméra qui écoute à son plus généreux.</em></p></div>
+</div>
+</div>
+
+<div class="closing">
+<p>Ce document est la bedrock. Ce n'est pas le film. Le film se fera dans les pièces où nous sommes ensemble, dans les essais et les repérages et sur le plateau, dans les longues conversations qui rayonnent depuis ces pages et y reviennent. <strong>Je t'offre cela comme un point de départ, pas un argument achevé.</strong> Lis-le. Conteste-le. Contredis-le. Trouve ce qui manque. Rapporte-le.</p>
+<p>L'image que nous construisons est en conversation avec tout ce qui a été pensé et fait sur la manière de regarder les corps noirs, les paysages caraïbes, les femmes qu'on a dites folles, les hommes qui ont été défaits par ce qu'ils ont tenté de dominer, les feux qui veulent dire libération, et un vol au-dessus d'une mer claire vers chez soi. <em>Le film s'ouvre sur le feu et finit sur un rire.</em> Antoinette rentre chez elle. Tout ce que nous faisons est, d'une petite manière, au service de ce retour à la maison.</p>
+<p>Le but, d'après Toni Cade Bambara, est <em>de rendre la révolution irrésistible</em>. Je veux que l'image de ce film soit irrésistible aussi. Pas parce qu'elle est belle, même si elle doit l'être. Parce qu'elle est honnête, éthique, vivante, éveillée, capable de tendresse, capable de refus, capable d'écoute, capable de tenir le monde qu'elle dépeint selon les termes du monde lui-même plutôt que selon les termes que l'héritage de la cinématographie a présupposés.</p>
+<p><strong>Bienvenue.</strong></p>
+
+<div class="sign">
+<p class="name">JENN NKIRU</p>
+<p class="date">Jeudi 4 juin 2026</p>
+</div>
+</div>
+
+<div class="companion">
+<p class="box-label">Documents compagnons</p>
+<p>Ce document se tient à côté d'une famille de documents bedrock et de notes de recherche en cours de construction à travers les départements. Chacun parle aux autres. Lis-les comme une constellation.</p>
+<ul>
+<li><strong>Darol Olu Kae</strong> &nbsp;/&nbsp; Visual Research Brief &nbsp;/&nbsp; <a href="https://gztwzwf97v-ui.github.io/wide-sargasso-sea_visualresearchbrief/" target="_blank" rel="noopener">en ligne</a></li>
+<li><strong>Errol</strong> &nbsp;/&nbsp; Sonic Research Brief / Touching Bass &nbsp;/&nbsp; <a href="https://gztwzwf97v-ui.github.io/wide-sargasso-sea_sonicresearchbrief-/" target="_blank" rel="noopener">en ligne</a></li>
+<li><strong>Nora Mendis</strong> &nbsp;/&nbsp; Production Design BEDROCK &nbsp;/&nbsp; <a href="https://gztwzwf97v-ui.github.io/wide-sargasso-sea_productiondesignbrief/" target="_blank" rel="noopener">en ligne</a></li>
+<li><strong>Ola Staszko</strong> &nbsp;/&nbsp; Costume BEDROCK &nbsp;/&nbsp; <a href="https://gztwzwf97v-ui.github.io/wide-sargasso-sea_costumedesignbriefeng/?v=5" target="_blank" rel="noopener">en ligne</a></li>
+<li><strong>Evi</strong> &nbsp;/&nbsp; Hair and Make-up BEDROCK &nbsp;/&nbsp; à venir</li>
+<li><strong>Sarah</strong> &nbsp;/&nbsp; Sound Supervisor BEDROCK &nbsp;/&nbsp; à venir</li>
+<li><strong>Tributaries</strong> &nbsp;/&nbsp; Un document séparé étendant zombi, technopoétique, archives noires, et courants adjacents &nbsp;/&nbsp; à venir</li>
+</ul>
+</div>
+
+</div>
+</body>
+</html>
